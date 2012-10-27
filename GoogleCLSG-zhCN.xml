@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="styleguide-zhCN.xsl"?>
 <GUIDE title="Google Common Lisp 风格指南">
 
@@ -281,7 +281,7 @@ Robert Brown
       回头看看这些原则来寻求指导：
       <ul>
         <li>
-          每一个开发者所写的代码必须让别的开发者容易阅读、理解及改动 —— 即便最初的开发者已经不在了。（这是“hit by a truck”原理。）
+          每一个开发者所写的代码必须让别的开发者容易阅读、理解及改动 —— 即便最初的开发者已经不在了。（这是 “hit by a truck” 理论。）
         </li>
         <li>
           每人的代码看起来要一致。理想上，不应该看到几行代码就认出，
@@ -537,69 +537,68 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        If you're not sure, consult a dictionary,
-        Google for alternative spellings,
-        or ask a local expert.
+        如果你不确定的话，查字典吧，
+        或是 Google 下来检查拼写。
+        或问问当地的专家。
       </p>
       <p>
-        Here are examples of choosing the correct spelling:
+        下列是如何选择正确拼写的例子：
       </p>
       <ul>
         <li>
-          Use "complimentary" in the sense of a meal or beverage
-          that is not paid for by the recipient, not "complementary".
+          使用 "complimentary" 表示免费饮料或大餐，
+          而不是 "complementary"。
         </li>
         <li>
-          Use "existent" and "nonexistent", not "existant".
-          Use "existence", not "existance".
+          使用 "existent" 以及 "nonexistent" 而不是 "existant"。
+          使用 "existence" 而不是 "existance"。
         </li>
         <li>
-          Use "hierarchy" not "heirarchy".
+          使用 "hierarchy" 而不是 "heirarchy"。
         </li>
         <li>
-          Use "precede" not "preceed".
+          使用 "precede" 而不是 "preceed"。
         </li>
         <li>
-          Use "weird", not "wierd".
+          使用 "weird" 而不是 "wierd"。
         </li>
       </ul>
       <p>
-        Here are examples of choosing the shorter spelling:
+        下列是如何选择短的拼写的例子：
       </p>
       <ul>
         <li>
-          Use "canceled", not "cancelled"
+          使用 "canceled" 而不是 "cancelled"
         </li>
         <li>
-          Use "queuing", not "queueing".
+          使用 "queuing" 而不是 "queueing".
         </li>
         <li>
-          Use "signaled", not "signalled";
+          使用 "signaled" 而不是 "signalled";
         </li>
         <li>
-          Use "traveled", not "travelled".
+          使用 "traveled" 而不是 "travelled".
         </li>
         <li>
-          Use "aluminum", not "aluminium"
+          使用 "aluminum" 而不是 "aluminium"
         </li>
         <li>
-          Use "oriented", not "orientated"
+          使用 "oriented" 而不是 "orientated"
         </li>
         <li>
-          Use "color", not "colour"
+          使用 "color" 而不是 "colour"
         </li>
         <li>
-          Use "behavior", not "behaviour"
+          使用 "behavior" 而不是 "behaviour"
         </li>
       </ul>
       <p>
-        Make appropriate exceptions for industry standard nomenclature/jargon,
-        including plain misspellings.
-        For instance:
+        位工业标准术语或是行话破例，包括了简单的拼写错误。
+        比如：
       </p>
       <ul>
         <li>
-          Use "referer", not "referrer", in the context of the HTTP protocol.
+          在 HTTP 协议的上下文中，使用 "referer" 而不是 "referrer"
         </li>
       </ul>
       
@@ -611,11 +610,10 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        Some line length restriction is better than none at all.
-        While old text terminals used to make 80 columns the standard,
-        these days, allowing 100 columns seems better,
-        since good style encourages the use of
-        descriptive variables and function names.
+        有某些行长限制总比没有好。
+        古老的文字终端机使用 80 栏，
+        但现在允许 100 栏似乎比较好，
+        因为好的风格鼓励你使用具有描述性的变量以及函数名称。
       </p>
       
     </BODY>
@@ -626,35 +624,33 @@ Robert Brown
         像一个配置好的 GNU Emacs 那样缩排你的代码。
       </p>
       <p>
-        审慎的缩排使代码更容易理解。
+        审慎的缩排会使代码更容易理解。
       </p>
     </SUMMARY>
     <BODY>
       <p>
-        通常 GNU Emacs 在缩排 Common Lisp 这件工作表现的非常出色。
-        可以教会 GNU Emacs 如何缩排新定义的形式，
-        或是给特定领域语言用的特殊规则。
-        每个项目可能有某些定制缩排的文件；使用它们吧。
-      </p>
-      
+        一般 GNU Emacs 在缩排 Common Lisp 代码这件工作上表现的非常出色。
+        也可以教会 GNU Emacs 如何缩排新定义的形式，
+        比如给特定领域语言用的特殊规则。
+        每个项目可能含有某些定制缩排的文件；使用它们吧。
+      </p>   
       
       <p>
-        Use indentation to make complex function applications easier to read.
-        When an application does not fit on one line
-        or the function takes many arguments,
-        consider inserting newlines between the arguments
-        so that each one is on a separate line.
-        However, do not insert newlines in a way that makes it hard to tell
-        how many arguments the function takes
-        or where an argument form starts and ends.
+        使用缩排让复杂的函数应用变得容易阅读。
+        当一个应用不能放在一行时，
+        或是函数接受太多参数，
+        考虑在参数之间插入新行，
+        让每个参数都是在独立的一行。
+        不插入新行在某些方面使得要知道函数接受多少参数或
+        参数的从何开始又从何结束变得困难。
       </p>
       <BAD_CODE_SNIPPET>
-        ;; Bad
+        ;; 差劲
         (do-something first-argument second-argument (lambda (x)
             (frob x)) fourth-argument last-argument)
       </BAD_CODE_SNIPPET>
       <CODE_SNIPPET>
-        ;; Better
+        ;; 较佳
         (do-something first-argument
                       second-argument
                       #'(lambda (x) (frob x))
@@ -674,35 +670,34 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        Every source file may begin with a one-line description of the file.
+        每一个源文件可以用一个描述文件的单行叙述起头。
       </p>
       <p>
-        After that optional description,
-        every source file may prominently include a statement
-        about who originally wrote the code,
-        made major changes, and/or is the current owner/maintainer.
-        This makes it easier for hackers to locate
-        whom to ask questions about the code,
-        or to identify that no one is left to reply to such inquiries.
-        However, consider that the information
-        is not very helpful if it is not maintained;
-        unless it brings information
-        that cannot be easily extracted from source control,
-        it is better skipped.
+        在刚刚选择性的叙述之后，
+        每一个源文件可以包含一个陈述，
+        关于最初是谁写了这个代码，
+        有哪些主要改动，以及（或是）目前谁是维护者（拥有者）。
+        这让黑客找到对的人来询问关于代码的问题、
+        或是确定没人可以回答询问，变得更容易。
+
+        然而，如果代码是没人维护的情况，
+        且留下的信息也不是非常有助益时；
+        以及源代码控制找出信息不是很容易的情况，
+        最好略过陈述不写。
       </p>
       <p>
-        After that optional statement, every file should follow with
-        a brief explanation of what the file contains.
+        在选择性的陈述之后，每个文件应该要有一个简短的说明，
+        解释这个文件所有的内容。
       </p>
       <p>
-        After that explanation, every file should start the code itself with an
+        在说明之后，每个文件应该由这个形式开始：
         <code>(in-package :<em>package-name</em>)</code> form.
       </p>
       <p>
-        After that <code>in-package</code> form,
-        every file should follow with any file-specific
-        <code>(declaim (optimize ...))</code> declaration
-        that is not covered by an asdf <code>:around-compile</code> hook.
+        在 <code>in-package</code> 形式之后，
+        接著是任何与文件相关的声明，比如
+        <code>(declaim (optimize ...))</code>。
+        这些是 asdf <code>:around-compile</code> hook 并没有涵盖到的声明。
       </p>
       <CODE_SNIPPET>
         ;;;; Author: brown (Robert Brown)
@@ -713,13 +708,12 @@ Robert Brown
         (declaim #.*optimize-default*)
       </CODE_SNIPPET>
       <p>
-        You should not include copyright information in individual source code files.
-        An exception is made for files meant to be disseminated as standalone.
+        你不应该在每个源代码文件附上版权信息。
+        单独发布的文件例外。
       </p>
       <p>
-        Each project or library has a single file specifying its license.
-        Absence of a <tt>LICENSE</tt> or <tt>COPYING</tt> file
-        means the project is proprietary code.
+        每个项目或函式库有一个单一的文件，详细说明文件的授权。
+        没有授权或版权代表这个项目是<a HREF="http://en.wikipedia.org/wiki/Proprietary_software">专有代码</a>。
       </p>
       
     </BODY>
@@ -730,12 +724,10 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-
-        You should include one blank line between top-level forms,
-        such as function definitions.
-        Exceptionally, blank lines can be omitted
-        between simple, closely related defining forms of the same kind,
-        such as a group of related type declarations or constant definitions.
+        你应该在顶层级别的形式留一个空行，比如函数定义。
+        在特殊情况下，空行可以省略，
+        简单的、密切相关的、同种类的定义形式，
+        比如一组相关的类型声明，或是常量定义。
       </p>
       <CODE_SNIPPET>
         (defconstant +mix32+ #x12b9b0a1 "pi, an arbitrary number")
@@ -752,20 +744,18 @@ Robert Brown
           `(setf ,x (logand (+ ,x ,y) #xffffffffffffffff)))
       </CODE_SNIPPET>
       <p>
-        Blank lines can be used to separate parts of a complicated function.
-        Generally, however, you should break a large function into smaller ones
-        instead of trying to make it more readable by adding vertical space.
-        If you can't, you should document with a <code>;;</code> comment
-        what each of the separated parts of the function does.
+        空行可以把复杂的函数切分成多个部分。
+        一般来说，你应该要把大函数切成几个小函数，
+        而不是添加垂直空间，让它读起来比较好读。
+        如果你不能够切成小函数，你应该要使用 <code>;;</code> 注解，
+        说明每个函数的部分各是干嘛的。
       </p>
       <p>
-        Every top-level form
-        should be fewer than 61 lines long,
-        including comments but excluding the documentation string.
-        This applies to each of the forms in an <code>eval-when</code>,
-        rather than to the <code>eval-when</code> itself.
-        Additionally, <code>defpackage</code> forms may be longer,
-        since they may include long lists of symbols.
+        每个顶层形式应该要少于 61 行，包括注解，但不含文档字串。
+        这是用于在 <code>eval-when</code> 里的每个形式，
+        而不是 <code>eval-when</code> 本身。
+        另外 <code>defpackage</code> 可以超過 61 行，
+        因为它可能有长长的列表清单。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -775,15 +765,14 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        You must not include extra horizontal whitespace
-        before or after parentheses or around symbols.
+        绝对不要在括号或符号的前面或后面加上额外的空白。
       </p>
       <p>
-        You must not place right parentheses by themselves on a line.
-        A set of consecutive trailing parentheses must appear on the same line.
+        绝对不要把右括号单写在一行。
+        一组连续的尾随括号必须出现在同一行。
       </p>
       <BAD_CODE_SNIPPET>
-        ;; Very Bad
+        ;; 非常差劲
         ( defun factorial ( limit )
           ( let (( product 1 ))
             ( loop for i from 1 upto limit
@@ -793,7 +782,7 @@ Robert Brown
         )
       </BAD_CODE_SNIPPET>
       <CODE_SNIPPET>
-        ;; Better
+        ;; 较佳
         (defun factorial (limit)
           (let ((product 1))
             (loop for i from 1 upto limit
@@ -801,51 +790,48 @@ Robert Brown
             product))
       </CODE_SNIPPET>
       <p>
-        You should use only one space between forms.
+        形式之间应该只用一个空格。
       </p>
       <p>
-        You should not use spaces to vertically align forms
-        in the middle of consecutive lines.
-        An exception is made when the code possesses
-        an important yet otherwise not visible symmetry
-        that you want to emphasize.
+        你不应该在多行连续的中间，使用空格来垂直排列形式。
+        一个例外是当代码不垂直对齐，就看不出你要强调的重要性时。
       </p>
       <BAD_CODE_SNIPPET>
-        ;; Bad
+        ;; 差劲
         (let* ((low    1)
                (high   2)
                (sum    (+ (* low low) (* high high))))
           ...)
       </BAD_CODE_SNIPPET>
       <CODE_SNIPPET>
-        ;; Better
+        ;; 较佳
         (let* ((low 1)
                (high 2)
                (sum (+ (* low low) (* high high))))
           ...))
       </CODE_SNIPPET>
       <p>
+        你必须排列嵌套型时，如果他们超过一行的话。
         You must align nested forms if they occur across more than one line.
       </p>
       <BAD_CODE_SNIPPET>
-        ;; Bad
+        ;; 差劲
         (defun munge (a b c)
         (* (+ a b)
         c))
       </BAD_CODE_SNIPPET>
       <CODE_SNIPPET>
-        ;; Better
+        ;; 较佳
         (defun munge (a b c)
           (* (+ a b)
              c))
       </CODE_SNIPPET>
       <p>
-        The convention is that the body of a binding form
-        is indented two spaces after the form.
-        Any binding data before the body is usually indented four spaces.
-        Arguments to a function call are aligned with the first argument;
-        if the first argument is on its own line,
-        it is aligned with the function name.
+        惯例是一个绑定形式的主体，在第一行之后缩排两格。
+        任何在主体之前的绑定数据，通常缩排四格。
+        函数调用的参数与第一个参数对齐；
+        如果第一个参数自成一行，
+        则与函数名称对齐。
       </p>
       <CODE_SNIPPET>
         (multiple-value-bind (a b c d)
@@ -855,63 +841,52 @@ Robert Brown
           (also-using b d))
       </CODE_SNIPPET>
       <p>
-        An exception to the rule against lonely parentheses
-        is made for an <code>eval-when</code> form around several definitions;
-        in this case, include a comment <code>; eval-when</code>
-        after the closing parenthesis.
+        一个可有单独括号的例外献给一个，
+        数个定义之间的<code>eval-when</code> 形式；
+        在这个情况下，在闭括号附上一个注解 <code>; eval-when</code>。
       </p>
       <p>
-        You must set your editor to
-        avoid inserting tab characters in the files you edit.
-        Tabs cause confusion when editors disagree
-        on how many spaces they represent.
-        In Emacs, do <code>(setq-default indent-tabs-mode nil)</code>.
+        你必须设置编辑器，让你在编辑文件时，避免插入 tab 字符。
+        当编辑器不同意一个 Tab 是由几个空格代表时，Tab 会使你困惑。
+        在 Emacs，输入 <code>(setq-default indent-tabs-mode nil)</code>。
       </p>
     </BODY>
   </STYLEPOINT>
 </CATEGORY>
-
 <CATEGORY title="文档">
   <STYLEPOINT title="钜细靡遗">
     <SUMMARY>
-      你应该在所有可视函数使用文档字串，
+      你应该给所有可视函数使用文档字串，
       来解释如何使用你的代码。
     </SUMMARY>
     <BODY>
       <p>
-        Unless some bit of code is painfully self-explanatory,
-        document it with a documentation string (also known as docstring).
+        除非某段代码完全一目了然，不然就上一个文档字串（别名 docstring）。
       </p>
       <p>
-        Documentation strings are destined to be read
-        by the programmers who use your code.
-        They can be extracted from functions, types, classes, variables and macros,
-        and displayed by programming tools, such as IDEs,
-        or by REPL queries such as <code>(describe 'foo)</code>;
-        web-based documentation or other reference works
-        can be created based on them.
-        Documentation strings are thus the perfect locus to document your API.
-        They should describe how to use the code
-        (including what pitfalls to avoid),
-        as opposed to how the code works (and where more work is needed),
-        which is what you'll put in comments.
+        文档字串生来就是给使用代码的程序员读的。
+        他们可以从函数、类型、类别、变量以及宏取出，
+        并通过编程工具，如 IDE 来显示。
+        或是通过在 REPL 下查询，如 <code>(describe 'foo)</code>；
+        放在网上的文档或其他参考著作也可以在文档字串的基础上来创建。
+        因此，文档字串是给你的 API 撰写文档的完美地点。
+        应该描述如何使用代码（包括需要避开的陷阱），
+        而不是代码是如何工作的（以及之后所需的工作），
+        这两个是你该放在注解的东西。
       </p>
       <p>
-        Supply a documentation string when defining
-        top-level functions, types, classes, variables and macros.
-        Generally, add a documentation string wherever the language allows.
+        当定义一个顶层及别的函数、类型、类别、变量以及宏时，提供一个文档字串。
+        一般则是在程序语言允许加入文档的地方，添加文档字串。
       </p>
       <p>
-        For functions, the docstring should describe the function's contract:
-        what the function does,
-        what the arguments mean,
-        what values are returned,
-        what conditions the function can signal.
-        It should be expressed at the appropriate level of abstraction,
-        explaining the intended meaning rather than, say, just the syntax.
-        In documentation strings, capitalize the names of Lisp symbols,
-        such as function arguments.
-        For example, "The value of LENGTH should be an integer."
+        关于函数，docstring 应该要描述函数的合约：
+        这个函数干什么，
+        这个函数的参数表示什么，
+        这个函数所返回的值，
+        这个函数可捕捉的状况。
+        应该在适当的抽象层级上来表达，解释意图，而不仅是解释语法。
+        在文档字串里，将 Lisp 符号的名字转为大写，比如函数参数。
+        打个比方，"The value of LENGTH should be an integer."
       </p>
       <CODE_SNIPPET>
         (defun small-prime-number-p (n)
@@ -933,17 +908,15 @@ Robert Brown
             associations, and returns the table itself."))
       </CODE_SNIPPET>
       <p>
-        A long docstring may usefully
-        begin with a short, single-sentence summary,
-        followed by the larger body of the docstring.
+        一个长的 docstring 通常用一句话的总结开始是有用的，
+        接著才是 docstring 的主要内容。
       </p>
       <p>
-        When the name of a type is used,
-        the symbol may be quoted by surrounding it with
-        a back quote at the beginning and a single quote at the end.
-        Emacs will highlight the type, and the highlighting serves
-        as a cue to the reader that <kbd>M-.</kbd>
-        will lead to the symbol's definition.
+        当一个类型的名称被使用时，
+        符号可以用反引号及单引号包围，
+        反引号在前，单引号在后。
+        Emacs 会将类型高亮，而高亮作为读取器的线索，
+        <kbd>M-.</kbd> 会跳转到符号的定义。
       </p>
       <CODE_SNIPPET>
         (defun bag-tag-expected-itinerary (bag-tag)
@@ -952,16 +925,16 @@ Robert Brown
           ...)
       </CODE_SNIPPET>
       <p>
-        Every method of a generic function should be independently documented
-        when the specialization affects what the method does,
-        beyond what is described in its generic function's docstring.
+        当特化影响了方法的行为，
+        超出通用函数的 docstring 所描述的内容时，
+        应该给通用函数的每一个方法各自撰写文档。
       </p>
       <p>
-        When you fix a bug,
-        consider whether what the fixed code does is obviously correct or not;
-        if not, you must add a comment explaining
-        the reason for the code in terms of fixing the bug.
-        Adding the bug number, if any, is also recommended.
+        当你修补了一个臭虫，
+        思考看看修补后的代码是否正确，还是是错误的；
+        如果不对的话，你必须添加一个注解，
+        从修补臭虫的观点来解释代码。
+        如果可以的话，添加臭虫序号，也是推荐的。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -971,49 +944,44 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        Comments are explanations to the future maintainers of the code.
-        Even if you're the only person who will ever see and touch the code,
-        even if you're either immortal and never going to quit,
-        or unconcerned with what happens after you leave
-        (and have your code self-destruct in such an eventuality),
-        you may find it useful to comment your code.
-        Indeed, by the time you revisit your code,
-        weeks, months or years later,
-        you will find yourself a different person from the one who wrote it,
-        and you will be grateful to that previous self
-        for making the code readable.
+        注解是给未来维护代码的人的说明。
+        即便你是唯一能够看与触摸代码的人，
+        即便你长生不老或是永远不离职，
+        或是离职之后根本不管的人（并在这种万一的情况下使你的代码自行毁灭），
+        你可能会发现给代码写注解是有帮助的。
+        当然啦，在几个礼拜、月、年之后，回头看看代码时，
+        你会发现当初写这个代码的人，完全与你不是同一个人，
+        则你会感激当初自己有留下注解。
       </p>
       <p>
-        You must comment anything complicated
-        so that the next developer can understand what's going on.
-        (Again, the "hit by a truck" principle.)
+        你必须给任何复杂的代码留注解，
+        这样一来下个开发者才可以了解情况。
+        （又来了，“hit by a truck” 理论。）
       </p>
       <p>
-        Also use comments as a way to guide those who read the code,
-        so they know what to find where.
+        注解也可以作为指引阅读代码的人的一种方式，
+        这样他们才知道这里有什么。
       </p>
       <ul>
         <li>
-          File headers and important comments
-          that apply to large sections of code in a source file
-          should begin with four semicolons.
+          文件表头及源文件里大段代码的重要注解，
+          注解应该使用四个分号。
         </li>
         <li>
-          You should use three semicolons
-          to begin comments that apply to just
-          one top-level form or small group of top-level forms.
+          一个顶层级别的形式或是小组的顶层级别形式，
+          注解应该使用三个分号。
         </li>
         <li>
-          Inside a top-level form, you should use two semicolons
-          to begin a comment if it appears between lines.
+          在一个顶层级别的形式里，
+          如果注解出现在行之间，
+          注解应该使用两个分号。
         </li>
         <li>
-          You should use one semicolon if it is a parenthetical remark
-          and occurs at the end of a line.
-          You should use spaces to separate the comment
-          from the code it refers to so the comment stands out.
-          You should try to vertically align
-          consecutive related end-of-line comments.
+          如果是一个括号的备注且出现在行的最后，
+          注解应该使用一个分号。
+          你应该使用空格来分离注解与引用的代码，
+          使得注解脱颖而出。
+          你应该试著垂直排列相关的行尾注解。
         </li>
       </ul>
       <CODE_SNIPPET>
@@ -1049,7 +1017,7 @@ Robert Brown
                        never (divisorp i n)))))
       </CODE_SNIPPET>
       <p>
-        You should include a space between the semicolon and the text of the comment.
+        在分号与注解文字之间，应该留一个空格。       
       </p>
     </BODY>
   </STYLEPOINT>
@@ -1059,95 +1027,93 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        When a comment is a full sentence,
-        you should capitalize the initial letter of the first word
-        and end the comment with a period.
-        In general, you should use correct punctuation.
+        当一个注解是完整的句子时，你应该将第一个字大写，
+        并用一个句号结束注解。
+        普遍来说，你应该使用正确的标点符号。
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="需要留意">
+  <STYLEPOINT title="小心注意">
     <SUMMARY>
       需要特别留意的注解，
-      你必须遵循使用 <code>---</code> 的惯例，
+      你必须遵循使用 <code>---</code> 前缀的惯例，
       包括了晦涩的编码技巧、TODO 事项、问题、损坏及危险。
     </SUMMARY>
     <BODY>
       <ul>
         <li>
-          <code>;--- </code> prefixes a cautionary comment,
-          e.g. explaining why the code in question is particularly
-          tricky, delicate, or non-obvious.
+          用 <code>;--- </code> 写一个警告性的注解，
+          比如解释这段涉及的代码为什么特别棘手、微妙，或不是这么直观的。
         </li>
         <li>
-          <code>;---??? </code> prefixes a serious question
-          which needs to be resolved soon,
-          by fixing either the code or its documentation.
+          用 <code>;---??? </code> 写一个严重问题，
+          需要尽快通过修补代码或是文档来解决。
         </li>
         <li>
-          <code>;---!!! </code> identifies code which is broken,
-          but which for some reason you cannot fix at this time.
-          You should not use this often for new code.
+          用 <code>;---!!! </code> 来识别坏掉的代码，
+          但出于某些原因，你不能在这个时候修复它。
+          你最好不要在新的代码太常使用这个。
         </li>
         <li>
-          <code>;---*** </code> identifies active <em>DANGER</em>,
-          for instance where important functionality is stubbed out,
-          or a large design issue remains unresolved.
-          Anything so marked must be fixed
-          before code is rolled into production.
+          用 <code>;---*** </code> 来识别重大危险，
+          举例来说，重要的功能不能用了，
+          或是重要的设计问题仍未解决。
+          在代码上线之前，
+          将任何需要解决的事情标记起来。
         </li>
       </ul>
       <p>
-        You must sign and date
-        any of the above "requiring further attention" comments
-        (but not mere cautionary explanations).
+        你必须在任何"需要进一步关切"的注解签名并加注日期，
+        但单纯的警告性注解不用。
       </p>
       <p>
-        This strategy ensures that grepping for <code>;---</code>
-        will always yield all the comments that require caution,
-        as well as whom to talk to about each one.
+        上面这个策略确保了用 grep 查找 <code>;---</code> 时，
+        永远会给出所有需要谨慎处理的注解，
+        并且每件事都知道该找谁商量。
       </p>
       <p>
-        Only use <code>;---</code> on the first line of such a comment.
-        Other lines should use spaces to align vertically.
-        This way, grepping will also yield a count of the number of issues.
+        需要用到 <code>;---</code> 的注解，
+        仅在第一行使用 <code>;---</code>。
+        其他行应使用空格来垂直对齐。
+        这样一来，grep 也会给出问题的数目。
       </p>
       <p>
-        You should insert a space after this comment prefix.
+        在注解前缀后面应插入一个空格。
       </p>
       <p>
-        You may use these with multiple-semicolon comments as well.
+        你也可以在多重分号注解里面使用这些前缀。
       </p>
       <p>
-        Some people like to use words like <code>FIXME</code> or <code>TODO</code>.
-        You may use these, but they must be preceded with <code>---</code>.
+        某些人喜欢使用像是 <code>FIXME</code> 或是 <code>TODO</code> 这样的单词。
+        你可以使用它们，但它们前面必须有 <code>---</code>。
       </p>
       <p>
-        Use TODO comments when the code is known to be incomplete
-        and you want to indicate what work remains to be done.
+        当已经知道代码尚未完成，
+        而你想要指出有哪些工作还需要完成时，使用 TODO 注解，
       </p>
       <p>
-        The comments begin with <code>TODO</code> in all capital letters,
-        followed by your email address or other identifier in parentheses,
-        followed by a colon, a space, and
-        an explanation of what additional work is desirable or required.
-        The user name included in the comment is that
-        of a person who understands the deficiency.
-        A TODO comment is not a commitment to fix the problem.
-      </p>
-      <p>
-        When signing comments,
-        you should use your username (for code within the company)
-        or full email address (for code visible outside the company),
-        not just initials.
+        由 TODO（全大写）、跟著是括号内的邮箱或其他标识符，
+        跟著一个冒号，一个空格，以及需要的说明。
+        开始的注解，
+
+        TODO 注解的格式，由 TODO （全大写）开始，接著是括号，
+        括号内是你的邮箱或是其他人，再来是一个冒号跟空格，
+        以及额外需要完成或想要完成的工作说明。
+        包含在此注解内的用户名，是理解这个缺陷的那个人。
         
+        一个 TODO 注解不保证要修补问题。
+      </p>
+      <p>
+        当给注解签名时，
+        应该使用你的用户名（针对公司内部代码），
+        或是完整 email 地址（针对公司外部可见代码），
+        而不只是名字的首字母缩写。
       </p>
       <CODE_SNIPPET>
         ;;--- TODO(george@gmail.com): Refactor to provide a better API.
       </CODE_SNIPPET>
       <p>
-        Be specific when indicating times or software releases
-        in a TODO comment:
+        在一个 TODO 注解理，具体指出时间或是软件版本：
       </p>
       <CODE_SNIPPET>
         ;;--- TODO(brown): Remove this code after release 1.7 or before November, 2012.
@@ -1160,31 +1126,27 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        You should design your Domain Specific Language
-        to be easy to read and understand by people familiar with the domain.
+        你应该设计同行容易阅读及理解的特定领域语言。
       </p>
       <p>
-        You must properly document all your Domain Specific Language.
+        你必须正确地给你的特定领域语言写文档。
       </p>
       <p>
-        Sometimes, your DSL is designed for terseness.
-        In that case, it is important to document what each program does,
-        if it's not painfully obvious from the context.
+        有的时候，你的特定领域语言
+        在这个情况里，如果每个程序从上下文中不是很直观的话，
+        用文档说明每个程序干了什么是很重要的。
       </p>
       <p>
-        Notably, when you use regular expressions
-        (e.g. with the <code>CL-PPCRE</code> package),
-        you MUST ALWAYS put in a comment
-        (usually a two-semicolon comment on the previous line)
-        explaining, at least basically, what the regular expression does,
-        or what the purpose of using it is.
-        The comment need not spell out every bit of the syntax, but
-        it should be possible for someone to follow the logic of the code
-        without actually parsing the regular expression.
+        值得注意的是，当你使用正则表达式时
+        （比如使用 <code>CL-PPCRE</code> 包），
+        你必须始终留一条注解（通常在前一行加两个分号的注解），
+        （最起码）要解释正则表达式做了什么，或是使用他的目的。
+        注解不需要解释所有语法的细节，
+        但应该让别人不需要解析正则表达式，
+        就知道你代码的逻辑是什么。
       </p>
     </BODY>
   </STYLEPOINT>
-
 </CATEGORY>
 
 <CATEGORY title="命名">
@@ -1543,7 +1505,7 @@ Robert Brown
 </CATEGORY>
 
 <CATEGORY title="语言使用准则">
-  <STYLEPOINT title="主要是函数式风格">
+  <STYLEPOINT title="以函数式风格为主">
     <SUMMARY>
       You should avoid side-effects when they are not necessary.
     </SUMMARY>
@@ -3831,7 +3793,7 @@ Robert Brown
 <small>致谢：
    Adam Worrall, Dan Pierson, Matt Marjanovic, Matt Reklaitis,
    Paul Weiss, Scott McKay, Sundar Narasimhan,
-   以及其他贡献的人。
+   以及其他贡献者。
    特别感谢 Steve Hain 
    与先前的编辑者，按时间反序排列，他们是 Dan Weinreb 及 Jeremy Brown。
    
