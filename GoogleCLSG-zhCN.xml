@@ -63,7 +63,6 @@ Robert Brown
     最后，我们希望激发阅读这篇指南的黑客，一些有用的想法，
     尤其是新认识 Common Lisp 的人。
   </p>
-  
   <p>
     本指南不是一个 Common Lisp 教程。
     关于语言的基本信息，请查阅 
@@ -85,57 +84,53 @@ Robert Brown
     <BODY>
       <table>
         <tr>
-          <th valign="top">必须 SHALL</th>
+          <th valign="top">必须 MUST</th>
           <td>
             <p>
-              This word, or the terms "REQUIRED" or "SHALL",
-              means that the guideline is an absolute requirement.
-              You must ask permission to violate a MUST.
+              MUST 或是 "REQUIRED"、"SHALL"，
+              代表这是一个绝对得做的事儿。
+              你必须徵询许可来违反一个 MUST。
             </p>
           </td>
         </tr>
         <tr>
-          <th valign="top">绝对不要 SHALL NOT</th>
+          <th valign="top">绝对不要 MUST NOT</th>
           <td>
             <p>
-              This phrase, or the phrase "SHALL NOT",
-              means that the guideline is an absolute prohibition.
-              You must ask permission to violate a MUST NOT.
+              MUST NOT，或是 "SHALL NOT"，
+              代表这是绝对不能做的事儿，
+              你必须徵询许可来违反一个 MUST NOT。
             </p>
           </td>
         </tr>
         <tr>
-          <th valign="top">推荐 RECOMMENDED</th>
+          <th valign="top">推荐 SHOULD</th>
           <td>
             <p>
-              This word, or the adjective "RECOMMENDED", means that
-              there may exist valid reasons in particular circumstances
-              to ignore the demands of the guideline, but
-              the full implications must be understood and carefully weighed
-              before choosing a different course.
-              You must ask forgiveness for violating a SHOULD.
+              SHOULD，或是形容词 "RECOMMENDED"，代表
+              在特殊情况下也许有适当的理由可以违反准则的要求，
+              但必须了解所有会影响到的事情，在选择另一个主题前审慎衡量。
+              你必须徵询谅解来违反一个 SHOULD。
             </p>
           </td>
         </tr>
         <tr>
-          <th valign="top">不推荐 NOT RECOMMENDED</th>
+          <th valign="top">不推荐 SHOULD NOT</th>
           <td>
             <p>
-              This phrase, or the phrase "NOT RECOMMENDED", means that
-              there may exist valid reasons in particular circumstances
-              to ignore the prohibitions of this guideline, but
-              the full implications should be understood and carefully weighed
-              before choosing a different course.
-              You must ask forgiveness for violating a SHOULD NOT.
+              SHOULD NOT，或是片语 "NOT RECOMMENDED"，代表
+              在特殊情况下也许有适当的理由可以违反准则的要求，
+              但必须了解所有会影响到的事情，在选择另一个主题前审慎衡量。
+              你必须徵询谅解来违反一个 SHOULD NOT。
             </p>
           </td>
         </tr>
         <tr>
-          <th valign="top">选择性 OPTIONAL</th>
+          <th valign="top">选择性 MAY</th>
           <td>
             <p>
-              This word, or the adjective "OPTIONAL",
-              means that an item is truly optional.
+              MAY，或是形容词 "OPTIONAL"，
+              代表某一项完全取决于你。
             </p>
           </td>
         </tr>
@@ -145,22 +140,21 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="允许与宽恕">
+  <STYLEPOINT title="许可与谅解">
     <SUMMARY>
       有时候违反某些规则是有用甚至必要的。
-      在这些情况里，你必须向适当的人寻求允许或取得谅解。
+      在这些情况里，你必须向适当的人徵询许可或取得谅解。
     </SUMMARY>
     <BODY>
       <p>
-        Permission comes from the owners of your project.
+        许可来自于项目的负责人。
       </p>
       
       <p>
-        Forgiveness is requested in a comment
-        near the point of guideline violation,
-        and is granted by your code reviewer.
-        The original comment should be signed by you, and
-        the reviewer should add a signed approval to the comment at review time.
+        在违反准则附近用注解来请求一个谅解，
+        而你的代码审查者将授予谅解。
+        原先的注解应由你签名，且
+        审查者应在审查时往注解添加一个签名许可。
       </p>
       
     </BODY>
@@ -171,39 +165,35 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        Some of these guidelines are motivated by universal principles of good programming.
-        Some guidelines are motivated by technical peculiarities of Common Lisp.
-        Some guidelines where once motivated by a technical reason,
-        but the guideline remained after the reason subsided.
-        Some guidelines, such those about as comments and indentation,
-        are based purely on convention, rather than on clear technical merit.
-        Whatever the case may be, you must still follow these guidelines,
-        as well as other conventional guidelines
-        that have not been formalized in this document.
+        某些准则启发自良好的编程普遍原则。
+        某些准则启发自 Common Lisp 的技术特性。
+        某些准则启发自一个技术理由，
+        但在理由消灭后，准则仍被保留了下来。
+        某些像是注解及缩排的准则，
+        完全是基于惯例，而不是有明显的技术价值。
+        无论是什么情况，你必须遵循这些准则，
+        以及其他常见但尚未被纳入此文件的准则。
       </p>
       <p>
-        You MUST follow conventions.
-        They are important for readability.
-        When conventions are followed by default,
-        violations of the convention are a signal
-        that something notable is happening and deserves attention.
-        When conventions are systematically violated,
-        violations of the convention are a distracting noise
-        that needs to be ignored.
+        你<em>必须</em>遵循惯例。
+        它们对于可读性来说非常重要。
+        当惯例默认被遵循时，
+        违反惯例是某件需要注意的事发生了，并需要留意的信号。
+        当惯例被有组织地违反时，
+        违反惯例是一个需要被忽略的恼人噪音。
       </p>
       <p>
-        Conventional guidelines <em>are</em> indoctrination.
-        Their purpose is to make you follow the mores of the community,
-        
-        so you can more effectively cooperate with existing members.
-        It is still useful to distinguish the parts that are technically motivated
-        from the parts that are mere conventions,
-        so you know when best to defy conventions for good effect,
-        and when not to fall into the pitfalls that the conventions are there to help avoid.
+        常规惯例<em>是</em>一种教化。
+        目的使你仿效社群的习俗，
+
+        这样你可以更有效率的与现有成员合作。
+        分辨出哪些是启发于技术性、或仅仅是惯例的准则仍然很有用，
+        这样你知道何时可以违反惯例来获得好的成效，
+        以及何时寻求准则帮助你不掉入陷阱。
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="老代码">
+  <STYLEPOINT title="古老代码">
     <p>
       我们很多代码都是在这些准则存在前所写的。
       当你在平常编程时遇到违反准则的代码时，修补它们。
@@ -218,63 +208,64 @@ Robert Brown
     <BODY>
       <ul>
         <li>
-          File and directory structure
+          文件及目录结构
         </li>
         <li>
-          Packages and modularity
+          包与模组化
         </li>
         <li>
-          Threads and locking
+          线程与锁
         </li>
         <li>
-          How to add configurable components
+          如何添加可配置的组件
         </li>
         <li>
-          CLOS style: initforms, slot and accessor names, etc.
+          CLOS 风格：initforms, 槽以及访问器名称，等等。
         </li>
         <li>
-          Recommendations on max number of slots per class.
+          每个类可有的最大槽数的建议。
         </li>
         <li>
-          More concrete examples of good code:
+          更多良好代码的具体例子：
           <ul>
             <li>
-              exceptions
+              异常
             </li>
             <li>
-              transactions, with retry
+              事务（含重试）
             </li>
             <li>
               XML
             </li>
             <li>
-              typing
+              类型
             </li>
             <li>
-              encapsulation / abstraction
+              封装或抽象
+              
             </li>
             <li>
-              class and slot names
+              类别及槽名
             </li>
             <li>
-              etc.
+              等等。
             </li>
           </ul>
         </li>
         <li>
-          When (not) to use conditional compilation:
+          何时（不要）使用条件式编译：
           <ul>
             <li>
-              modifying the product
+              改动产品时
             </li>
             <li>
-              conditional debugging/console output/etc.
+              条件式调试或终端输出等。
             </li>
             <li>
-              "temporarily" commenting-out blocks of code
+              “暂时性”注解掉代码块
             </li>
             <li>
-              etc.
+              等等。
             </li>
           </ul>
         </li>
@@ -331,7 +322,7 @@ Robert Brown
       </p>
       <ul>
         <li>
-          客户的可用性。
+          客户的易用性。
         </li>
         <li>
           可调试性或可测试性。
@@ -349,55 +340,51 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        Most of these are obvious.
+        这些准则大部分都是直观的。
       </p>
       <p>
-        Usability by the customer means that the system has to do what the
-        customer requires; it has to handle the customer's transaction
-        volumes, uptime requirements; etc.
+        客户的易用性代表系统满足客户的需求；
+        需要处理客户的交易量，正常运作时的需求；等等。
       </p>
       <p>
-        For the Lisp efficiency point,
-        given two options of equivalent complexity,
-        pick the one that performs better.
-        (This is often the same as the one that conses less,
-        i.e. allocates less storage from the heap.)
+        针对 Lisp 效率这一点，
+        有两个同样复杂的选择，
+        选执行较好的那个。
+        （通常是构造比较少的那个，
+        也就是从堆上配置了较少空间。）
       </p>
       <p>
-        Given two options where one is more complex than the other,
-        pick the simpler option and revisit the decision only if
-        profiling shows it to be a performance bottleneck.
+        给定两个选择，其中一个比另一个复杂，
+        选择简单的那个选择，并分析出另一个有更好效能时，
+        才重新审视当初的决定。
       </p>
       <p>
-        However, avoid premature optimization.
-        Don't add complexity to speed up something that runs rarely,
-        since in the long run, it matters less whether such code is fast.
+        然而，避免过早优化。
+        别为了给很少运行的东西提升速度而添加复杂度。
+        因为长期来说，鲜少运行的代码快不快不是那么重要。
       </p>
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="架构">
     <SUMMARY>
-      To build code that is robust and maintainable,
-      it matters a lot how the code is divided into components,
-      how these components communicate,
-      how changes propagate as they evolve,
-      and more importantly
-      how the programmers who develop these components communicate
-      as these components evolve.
+      要打造强韧且易维护的代码，
+      关系到如何将代码切分成组件，
+      这些组件如何沟通，
+      改版时改动如何传递，
+      而最重要的是
+      程序员在改版时如何使这些部分相互沟通。
     </SUMMARY>
     <BODY>
       <p>
-        If your work affects other groups, might be reusable across groups,
-        adds new components, has an impact on other groups
-        (including QA or Ops), or otherwise isn't purely local,
-        you must write it up using at least a couple of paragraphs,
-        and get a design approval from the other parties involved
-        before starting to write code &#8212; or be ready to scratch what you have
-        when they object.
+        如果你的工作影响到其他的小组，或是可被小组之间重用，
+        如添加新组件会影响到其他小组（包括品管及运维），
+        或是非本地作业的事情，你必须至少写几段文字，
+        在开始写代码前 &#8212; 并获得设计组或其他相关当事人的许可，
+        或是在当他们拒绝后，准备好重头开始。
       </p>
       <p>
-        If you don't know or don't care about these issues,
-        ask someone who does.
+        如果你不知道或不在乎这些议题，
+        问问某些知道或在乎的人。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -411,39 +398,36 @@ Robert Brown
     <BODY>
       <ul>
         <li>
-          You MUST NOT start a new library
-          unless you established that none is already available
-          that can be fixed or completed into becoming what you need.
-          That's a rule against the NIH syndrome ("Not Invented Here"),
-          which is particularly strong amongst Lisp hackers.
+          绝对不要贸然开始写一个新的函式库，
+          除非你已查证没有可用的函式库存在，
+          而新的函式库完成后可以解决或满足你的需求。
+          这是一个违背<a HREF="http://zh.wikipedia.org/zh-cn/%E9%9D%9E%E6%88%91%E6%89%80%E5%89%B5">非我所创</a>症候群的规则，
+          这个症候群在 Lisp 黑客圈里特别常见。
         </li>
         <li>
-          Whichever library, old or new, you pick, you MUST get permission
-          to incorporate third-party code into the code base.
-          You must discuss the use of such library
-          in the appropriate mailing-list,
-          and have your code reviewed by people knowledgeable in the domain
-          and/or the Lisp library ecosystem (if any).
-          Please be ready to argue why this particular solution makes sense
-          as compared to other available libraries.
+          无论你采用是新的或古老的函式库，你<em>必须</em>获得许可，才能将
+          第三方代码并入代码库。
+          你必须在对的邮件组讨论这个函式库的用途，
+          并将你的代码交给此领域的专业人士审查，
+          或是由（如果有的话） Lisp 函式库生态系统的人审查。
+          并请准备好说明为什么这个特定的解决方案，
+          比其他可用的函式库更好。
         </li>
         <li>
-          Some libraries are distributed under licenses not compatible
-          with the software you're writing, and
-          must not be considered available for use.
-          Be aware of these issues, or consult with people who are.
+          某些函式库的授权，与你正撰写的软件不兼容，
+          则绝对不要将这个函式库认为是可用的。
+          当心授权议题，或请教相关人士。
         </li>
       </ul>
       
       <p>
-        Note that if you have a "clever" implementation trick,
-        and your trick really is clever,
-        then you must definitely not include it in business specific code;
-        but it may have its place in an open-source library used by the code.
-        If your idea is not general purpose enough to have any users
-        beyond your regular business users,
-        then it is definitely either not clever enough or way too clever,
-        and in either case does not belong in the code.
+        如果你有一个绝妙的实现技巧，而你的技巧真的如此巧妙，
+        则你绝对不要将其放入业务有关的代码；
+        但也许可以被开源函式库的代码所用。
+        如果你的想法对于任何用户来说不普遍，
+        超出了一般的业务用户的认知范围，
+        那么这绝对不是聪明或是巧妙，
+        在这两个情况里，都不要将技巧纳入代码里。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -459,22 +443,19 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        Use your judgment to distinguish
-        general-purpose versus business-specific code,
-        and open-source the general-purpose parts,
-        while keeping the business-specific parts a trade secret.
+        用你的判断来分辨通用 vs 业务相关的代码，
+        将通用的部份开源出来，
+        而业务相关的部份保守为商业机密。
       </p>
       
       <p>
-        Open-Sourcing code has many advantages,
-        including being able to leverage third parties for development,
-        letting the development of features be user-directed,
-        and keeping you honest with respect to code quality.
-        Whatever code you write, you will have to maintain anyway,
-        and make sure its quality is high enough to sustain use in production.
-        There should therefore be no additional burden to Open-Sourcing,
-        even of code that (at least initially)
-        is not directly usable by third parties.
+        开源代码有许多好处，能促使第三方参与开发，
+        使开发产品特色从用户角度出发，
+        并使你诚实面对代码的品质。
+        无论你写的是什么代码，你会需要维护他们的，
+        并确保代码品质够好，能在产品上线时使用。
+        开源正因为如此，不会有什么额外的负担。
+        即便是（至少最初是如此）无法直接被第三方使用的代码。
       </p>
       
     </BODY>
@@ -490,53 +471,48 @@ Robert Brown
       </p>
       <ul>
         <li>
-          All code changes must be reviewed.
-          You should expect that your code will be reviewed by other hackers,
-          and that you will be assigned other hackers' code to review.
-          Part of the review criteria will be that code obeys
-          the coding standards in this document.
+          所有的代码改动必须经过审查。
+          你应该期待你的代码会被其他黑客审查，
+          而你也会被指派去审查别的黑客的代码。
+          审查的部份标准将会是代码需要遵守这份文件所载的编码标准。
         </li>
         <li>
-          You must write and check-in tests for new code that you write and old bugs you fix.
-          There must be a unit test for every API function,
-          and any previously failing case.
-          Your work is not truly done until this activity is complete.
-          Estimating tasks must include the time it takes to produce such tests.
+          你必须撰写测试，以及测试新撰写的代码，并记录你所修补的臭虫 (bug)。
+          每一个 API 函数必须有一个单元测试，以及任何先前失败的例子。
+          在前述事项做完之前，你的工作都不算完成。
+          在评估工作任务时，必须算进撰写测试所花的时间。
         </li>
         <li>
-          Your code must compile
-          without any compilation error or warning messages whatsoever.
-          If the compiler issues warnings that should be ignored,
-          muffle those warnings using the
-          <code>xcvb-driver:with-controlled-compiler-conditions</code> and
+          你的代码编译后必须没有任何编译错误或是警告信息，等等。
+          如果需要忽略编译器所抱怨的警告时，
+          将这些警告用
+          <code>xcvb-driver:with-controlled-compiler-conditions</code> 及
           <code>xcvb-driver:*uninteresting-conditions*</code>
-          framework (also available as <code>asdf-condition-control</code>),
-          either around the entire project, or around individual files
-          (using asdf's <code>:around-compile</code> hooks).
+          框架包覆起来（也可以用 <code>asdf-condition-control</code>）。
+          要包覆整个项目，或是单一的文件
+          （使用 asdf 的 <code>:around-compile</code> hook）。
         </li>
         <li>
-          All code should be checked in an appropriate source control system,
-          in a way that allows for complete reproducibility of
-          build, test and execution of
-          the code that is, has been or may be deployed.
+          所有的代码应该在一个适当的源代码管理系统检查，
+          该系统可以在某种形式上，允许完整重新生成，
+          某个已经布署（或可以布署）代码的版本、测试以及执行。
         </li>
         <li>
-          You must run the "precheckin" tests, and each component must pass
-          its unit tests successfully before you commit any code.
+          你必须在运行测试前先测试单一的组件，
+          只有在每个组件通过单元测试时，才可以提交代码。
         </li>
         <li>
-          You should incorporate code coverage into your testing process.
-          Tests are not sufficient
-          if they do not cover all new and updated code;
-          code that for whatever reason cannot be included in coverage results
-          should be clearly marked as such including the reason.
+          你应该将代码覆盖度纳入你的测试流程。
+          如果测试不能涵盖所有新更新的代码，那么测试就是不足够的；
+          无论有任何理由，一个测试无法覆盖的代码，
+          需要清楚标明，并附上理由。
         </li>
         <li>
-          Many people develop on branches.
-          You must get permission to undertake mass-changes
-          (e.g. mass reindentations)
-          so that we can coordinate in advance,
-          and give branch residents time to get back on the mainline
+          许多人在分之下开发。
+          你必须获得许可，再开始大幅度的改动。
+          （比如大量的重新缩排）
+          这样我们才可事先协调，
+          并给予分支充裕的时间来回到主线上。
         </li>
       </ul>
     </BODY>

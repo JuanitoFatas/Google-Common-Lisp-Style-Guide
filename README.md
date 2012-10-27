@@ -1,4 +1,12 @@
+<strong>
+Warning: This is a work in progress.
+</strong>
+
 ## [Google Common Lisp Style Guide][GCLSG] 中文版
+
+### Read Online!
+
+visit: http://gclsg.lisp.tw/
 
 ### Why this guide?
 
@@ -6,7 +14,7 @@
 
 > “Style” covers a lot of ground, from “use camelCase for variable names” to “never use global variables” to “never use exceptions.” This project holds the style guidelines we use for Google code. If you are modifying a project that originated at Google, you may be pointed to this page to see the style guides that apply to that project.
 
-> -- from [google-styleguide][gsg]
+> -- from [google-styleguide][gsg] project home
 
 ### License
 
@@ -16,8 +24,3 @@ These style guides are licensed under the CC-By 3.0 License, which encourages yo
 
 [gsg]:https://code.google.com/p/google-styleguide/
 [GCLSG]:https://google-styleguide.googlecode.com/svn/trunk/lispguide.xml
-
-
-### Translation
-
-Work in Progress.
