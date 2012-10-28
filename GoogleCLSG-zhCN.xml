@@ -277,7 +277,7 @@ Robert Brown
       </ul>
     </BODY>
   </STYLEPOINT>
-  </CATEGORY>
+</CATEGORY>
 <CATEGORY title="通用准则">
   <STYLEPOINT title="原则">
     <SUMMARY>
@@ -1153,7 +1153,6 @@ Robert Brown
     </BODY>
   </STYLEPOINT>
 </CATEGORY>
-
 <CATEGORY title="命名">
   <STYLEPOINT title="符号准则">
     <SUMMARY>
@@ -1225,7 +1224,7 @@ Robert Brown
     <BODY>
       <p>
         应该根据变量所意涵的概念命名，
-        而不是根据概念在机器层级是怎么表示的来命名。
+        而不是根据概念在机器底层是怎么表示的来命名。
       </p>
       <p>
         因此，你应该避免嵌入数据结构或结合类型名称，
@@ -1251,7 +1250,7 @@ Robert Brown
         严格来说，因为你将细节抽象起来了，
         剩下的亮点是，它是一个 row。
         在这个上下文里，不应该将变量取名为 <code>STRING</code>，
-        除非低阶函数明确地操作 row 的内部结构，提供与 STRING 类似的抽象。
+        除非底层函数明确地操作 row 的内部结构，提供与 STRING 类似的抽象。
       </p>
       <p>
         保持一致。
@@ -1393,7 +1392,7 @@ Robert Brown
         当你重构时，小心那些被包的单元测试所使用的内部符号。
       </p>
       <p>
-        <code>::</code> 用来建构非常临时的 hack ，
+        <code>::</code> 用来建构非常临时的窍门 (hack)，
         或是在 REPL 使用也是很有用的。
         但若是符号真是外部可见的包定义中的一部分，
         导出它。
@@ -1414,7 +1413,7 @@ Robert Brown
           一种是被纳入其它包的 <code>:use</code> 规格说明。
           如果甲包使用乙包，则乙包的外部符号可以在甲包内被引用，
           而无需使用包的前缀。
-          我们主要在低阶模组使用这种包，来提供广用的实用函数。
+          我们主要在底层模组使用这种包，来提供广用的实用函数。
         </li>
         <li>
           一种是不打算被使用。
@@ -1465,7 +1464,6 @@ Robert Brown
     </BODY>
   </STYLEPOINT>
 </CATEGORY>
-
 <CATEGORY title="语言使用准则">
   <STYLEPOINT title="以函数式风格为主">
     <SUMMARY>
@@ -1473,23 +1471,21 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        Lisp is best used as a "mostly functional" language.
+        Lisp 的最佳用法是"以函数式风格为主"。
       </p>
       <p>
-        Avoid modifying local variables, try rebinding instead.
+        避免改动局部变量，重新绑定试试。
       </p>
       <p>
-        Avoid creating objects and the SETFing their slots.
-        It's better to set the slots during initialization.
+        避免创建对象并给他们的槽赋值。
+        最好在初始化的时候将槽设置好。
       </p>
       <p>
-        Make classes as immutable as possible, that is, avoid giving slots
-        setter functions if at all possible.
+        让类别越坚固越好，也就是说，尽可能避免给槽用赋值函数。
       </p>
       <p>
-        Using a mostly functional style makes it much easier
-        to write concurrent code that is thread-safe.
-        It also makes it easier to test the code.
+        以函数是风格为主使得撰写线程安全的并发代码变得非常简单。
+        也使得测试代码变容易了。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -1499,44 +1495,38 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        Common Lisp systems are not required to implement
-        function calls from tail positions without leaking stack space
-        &#8212; which is known as proper tail calls (PTC),
-        tail call elimination (TCE),
-        or tail call optimization (TCO).
-        This means that indefinite recursion through tail calls
-        may quickly blow out the stack,
-        which hampers functional programming.
-        Still, most serious implementations (including SBCL and CCL)
-        do implement proper tail calls, but with restrictions:
+        Common Lisp 系统不要求每个实现实作不会泄漏栈内存的尾递归 &#8212;
+        也称为正规尾调用 (PTC)、尾调用消除(TCE) 或尾调用优化 (TCO)。
+        这表示由尾调用所产生的无穷递归很快就把栈吃光光了，
+        阻碍了函数式编程。
+        最严格的实现（包括了 SBCL 与 CCL) 还是有实作正规尾调用，
+        但有如下限制：
       </p>
       <ul>
         <li>
-          The <code>(DECLARE (OPTIMIZE ...))</code> settings
-          must favor <code>SPEED</code> enough and
-          not favor <code>DEBUG</code> too much,
-          for some compiler-dependent meanings of "enough" and "too much".
-          (For instance, in SBCL, you should avoid <code>(SPEED 0)</code>
-          and <code>(DEBUG 3)</code> to achieve proper tail calls.)
+          <code>(DECLARE (OPTIMIZE ...))</code> 的设置必须
+          <code>SPEED</code> 够高且
+          <code>DEBUG</code> 不能太高，
+          这里的够高与不能太高，每个编译器的数值都不同。
+          （举例来说，在 SBCL，
+          你应该避免 <code>(SPEED 0)</code> 以及 <code>(DEBUG 3)</code> 
+          来实现正规尾调用。）
         </li>
         <li>
-          There should not be dynamic bindings around the call
-          (even though some Scheme compilers are able to properly treat
-          such dynamic bindings, called parameters in Scheme parlance).
+          应该避免在调用时使用动态绑定（即使某些 Scheme 编译器能够
+          正确处理这样的动态绑定，根据 Scheme 的说法是叫做 parameters。）
         </li>
       </ul>
       <p>
-        For compatibility with all compilers and optimization settings,
-        and to avoid stack overflow when debugging,
-        you should prefer iteration or the built in mapping functions
-        to relying on proper tail calls.
+        为了兼容所有的编译器及优化设置，以及避免调试时栈溢出发生，
+        你应该偏好迭代或是内置的映射函数，胜于依赖正规尾调用。
       </p>
       <p>
-        If you do rely on proper tail calls,
-        you must prominently document the fact,
-        and take appropriate measures to ensure an appropriate compiler is used
-        with appropriate optimization settings.
-        For fully portable code, you may have to use trampolines instead.
+        如果你真的得用正规尾调用的话，
+        你必须明显记录起来，并实验编译器的优化参数，
+        确保你使用了正确的优化设置。
+        想要有可移植到任何地方的代码，
+        你可以使用一个迭代地调用续延传递函数的循环 (<a HREF="http://en.wikipedia.org/wiki/Trampoline_(computing)#High_Level_Programming">trampolines</a>)。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -2012,7 +2002,6 @@ Robert Brown
     </BODY>
   </STYLEPOINT>
 </CATEGORY>
-
 <CATEGORY title="元语言准则">
   <STYLEPOINT title="宏">
     <SUMMARY>
@@ -2450,7 +2439,6 @@ Robert Brown
     </BODY>
   </STYLEPOINT>
 </CATEGORY>
-
 <CATEGORY title="表示数据">
   <STYLEPOINT title="NIL: 空表、假、以及我不知道">
     <SUMMARY>
@@ -2699,7 +2687,6 @@ Robert Brown
     </BODY>
   </STYLEPOINT>
 </CATEGORY>
-
 <CATEGORY title="适当形式">
   <p>
     你必须遵循函数、宏以及特殊形式的正确使用方式。
@@ -3176,7 +3163,6 @@ Robert Brown
     </BODY>
   </STYLEPOINT>
 </CATEGORY>
-
 <CATEGORY title="优化">
   <STYLEPOINT title="避免配置">
     <SUMMARY>
@@ -3497,7 +3483,6 @@ Robert Brown
     </BODY>
   </STYLEPOINT>
 </CATEGORY>
-
 <CATEGORY title="陷阱">
   <STYLEPOINT title="函数 FUN? 引用 FUN?">
     <SUMMARY>
