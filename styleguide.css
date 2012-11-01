@@ -1,31 +1,32 @@
+guide{
+  margin: 0 auto;
+}
 body {
   background-color: #fff;
-  color: #333333;
+  color: #333;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size:  14px;
+  font-size:  16px;
   line-height: 20px;
-  margin-right: 100px;
-  margin-left: 100px;
-  background-color: #ffffff;
+  margin: 0 100px;
 }
 
 h1, h2, h3, h4, h5, h6, .toc_title {
   color: #06c;
-  margin-top: 2em;
-  margin-bottom: 1em;
+  margin-top: 2.125em;
+  margin-bottom: 1.125em;
 }
 
 h1 {
   text-align: center;
-  font-size: 36px;
-  line-height: 40px;
+  font-size: 40px;
+  line-height: 44px;
 }
 
 h2, .toc_title {
   font-weight: bold;
-  margin-left: -40px;
-  font-size: 30px;
-  line-height: 40px;
+  margin-left: -42px;
+  font-size: 32px;
+  line-height: 42px;
 }
 
 h3, h4, h5, h6 {
@@ -50,23 +51,25 @@ h6 {
 }
 
 .toc_category, .toc_stylepoint {
-  font-size: 10pt;
-  padding-top: .3em;
-  padding-bottom: .3em;
+  font-size: 12pt;
+  padding-top: .35em;
+  padding-bottom: .35em;
 }
 
 table {
   border-collapse: collapse;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 td, th {
-  border: 1px solid #ccc;
-  padding: 2px 12px;
-  font-size: 10pt;
+  border: 2px solid #ccc;
+  padding: 2px 20px;
+  font-size: 12pt;
 }
 
 .toc td, .toc th {
-  border-width: 1px 5px;
+  border-width: 2px 6px;
 }
 
 code, samp, var {
@@ -74,7 +77,7 @@ code, samp, var {
 }
 
 pre {
-  font-size: 10pt;
+  font-size: 14pt;
   display: block;
   color: #060;
   background-color: #f8fff8;
@@ -84,10 +87,10 @@ pre {
   border-bottom-width: 1px;
   border-right-width: 1px;
   border-left-width: 5px;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 5px;
+  padding-bottom: 0px;
 }
 
 pre.badcode {
@@ -98,9 +101,9 @@ pre.badcode {
 
 code,
 pre {
-  padding: 0 3px 2px;
+  padding: 0 5px 6px;
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-  font-size: 12px;
+  font-size: 14px;
   /*color: #333333;*/
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
@@ -108,18 +111,19 @@ pre {
 }
 
 code {
-  padding: 2px 4px;
-  /*color: #d14;*/
+  padding: 3px 8px;
   background-color: #f7f7f9;
   border: 1px solid #e1e1e8;
+  margin-left: 1px;
+  margin-right: 1px;
 }
 
 pre {
   display: block;
-  padding: 9.5px;
-  margin: 0 0 10px;
-  font-size: 13px;
-  line-height: 20px;
+  padding: 14px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre;
@@ -244,4 +248,15 @@ em {
 
 cite {
   font-style: normal;
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+p, ul, dl{
+  line-height: 1.75em;
+}
+
+dd,li {
+  margin-bottom: 5px;
 }
