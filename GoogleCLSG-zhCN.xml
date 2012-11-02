@@ -12,7 +12,7 @@
 </div>
 
 <p align="right">
-修订版号 1.15
+  修订版号 1.15
 </p>
 
 <address>
@@ -34,56 +34,35 @@ Robert Brown
 <CATEGORY title="重要注意事项">
   <STYLEPOINT title="注意：显示在本指南里所隐藏的信息">
      <SUMMARY>
-        这个风格指南包含了许多从外表所隐藏的细节。
-        他们由三角图示标记，可以在左边看到。
-        按下它。你应该看到“万岁”出现在下方。
+        这个风格指南包含了许多表面上看不到的细节。他们由三角图示标记，可以在左边看到。按下它。你应该看到“万岁”出现在下方。
      </SUMMARY>
      <BODY>
        <p>
-        万岁！现在你知道如何将点展开来获得更多细节。
-        在文件的最上方也有一个“全部展开”的按钮。
+        万岁！现在你知道如何将点展开来获得更多细节。在文件的最上方也有一个“全部展开”的按钮。
        </p>
      </BODY>
   </STYLEPOINT>
 </CATEGORY>
 <CATEGORY title="背景">
   <p>
-    Common Lisp 是一个强大的多范式程序语言。
-    能力越强，责任越大。
+    Common Lisp 是一个强大的<abbr title="multi-paradigm programming language">多范式程序语言</abbr>。能力越强，责任越大。
   </p>
   <p>
-    这个指南推荐了推荐了格式化及风格化的选择，目的在于使你的代码更容易令其他人理解。
-    这些准则适用于我们在 Google 所有用 Common Lisp 写的代码，
-    包括了我们维护、发布的内部应用及免费软件函式库。
-    如果你想贡献代码到这个代码库，在你可以提交补丁之前，
-    你必须遵循这些准则，否则你需要先修订你的代码，使其符合准则，接著再提交。
+    本指南推荐了格式化及风格化的选择，目的在于使你的代码更容易被其他人理解。这些准则适用于我们在 Google 所有用 Common Lisp 写的代码，包括了我们维护、发布的内部应用及免费软件函式库。如果你想贡献代码到我们的代码库，在可以提交补丁之前，你必须遵循这些准则，不然得先修订你的代码，使其符合准则，接著再提交。
   </p>
   <p>
-    如果你是在 Google 以外的地方编写 Common Lisp 代码
-    我们邀请你一同来思考这里所阐述的准则。
-    在你闲暇之馀，也许可以将这些准则，应用至你某些或全部的项目：
-    我们希望你和我们一样，发现这些准则是很有用的。
-    即便你不这么觉得，我们欢迎你评论以及提供建设性的反馈，
-    来帮助我们改善这篇指南，并提供其他成功案例的风格。
-    最后，我们希望激发阅读这篇指南的黑客，一些有用的想法，
-    尤其是新认识 Common Lisp 的人。
+    如果你是在 Google 以外的地方编写 Common Lisp 代码，我们邀请你一同来思考这里所阐述的准则。在你闲暇之馀，也许可以将这些准则，应用至你某些或全部的项目：我们希望你和我们一样，发现这些准则是很有用的。即便你不这么觉得，我们欢迎你评论以及提供建设性的反馈，来帮助我们改善这篇指南，并提供其他成功案例的风格。最后，我们希望激发阅读这篇指南的黑客，一些有用的想法，尤其是初识 Common Lisp 的人。
   </p>
   <p>
-    本指南不是一个 Common Lisp 教程。
-    关于语言的基本信息，请查阅
-    <a HREF="http://www.gigamonkeys.com/book/">Practical Common Lisp</a>。
-    关于语言参考手册，请查阅
-    <a HREF="http://www.lispworks.com/documentation/HyperSpec/Front/index.htm">Common Lisp HyperSpec</a>。
-    关于更详细的风格指南，请看 Peter Norvig 及 Kent Pitman 的
-    <a HREF="http://norvig.com/luv-slides.ps">风格指南</a>。
+    本指南不是一个 Common Lisp 教程。关于语言的基本信息，请查阅<a HREF="http://www.gigamonkeys.com/book/">Practical Common Lisp</a>。关于语言参考手册，请查阅<a HREF="http://www.lispworks.com/documentation/HyperSpec/Front/index.htm">Common Lisp HyperSpec</a>。
+    关于更详细的风格指南，请看 Peter Norvig 及 Kent Pitman 的<a HREF="http://norvig.com/luv-slides.ps">风格指南</a>。
   </p>
 </CATEGORY>
 </OVERVIEW>
 <CATEGORY title="元準則">
   <STYLEPOINT title="必须、应该、可能、别">
     <SUMMARY>
-     每一个准则的重要程度由下列来自
-     <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a> 的关键字及词组标示。
+     每一个准则的重要程度，由下列来自 <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a> 的关键字及词组标示。
     </SUMMARY>
     <BODY>
       <table>
@@ -91,9 +70,7 @@ Robert Brown
           <th valign="top">必须 MUST</th>
           <td>
             <p>
-              MUST 或是 "REQUIRED"、"SHALL"，
-              代表这是一个绝对得做的事儿。
-              你必须徵询许可来违反一个 MUST。
+              MUST 或是 “REQUIRED”、“SHALL”，代表这是一个绝对得做的事儿。你必须徵询许可来违反一个 MUST。
             </p>
           </td>
         </tr>
@@ -101,9 +78,7 @@ Robert Brown
           <th valign="top">绝对不要 MUST NOT</th>
           <td>
             <p>
-              MUST NOT，或是 "SHALL NOT"，
-              代表这是绝对不能做的事儿，
-              你必须徵询许可来违反一个 MUST NOT。
+              MUST NOT，或是 “SHALL NOT”，代表这是绝对不能做的事儿，你必须徵询许可来违反一个 MUST NOT。
             </p>
           </td>
         </tr>
@@ -111,10 +86,7 @@ Robert Brown
           <th valign="top">推荐 SHOULD</th>
           <td>
             <p>
-              SHOULD，或是形容词 "RECOMMENDED"，代表
-              在特殊情况下也许有适当的理由可以违反准则的要求，
-              但必须了解所有会影响到的事情，在选择另一个主题前审慎衡量。
-              你必须徵询谅解来违反一个 SHOULD。
+              SHOULD，或是形容词 “RECOMMENDED”，代表在特殊情况下也许有适当的理由可以违反准则的要求，但必须了解所有会影响到的事情，在选择另一个主题前审慎衡量。你必须徵询谅解来违反一个 SHOULD。
             </p>
           </td>
         </tr>
@@ -122,10 +94,7 @@ Robert Brown
           <th valign="top">不推荐 SHOULD NOT</th>
           <td>
             <p>
-              SHOULD NOT，或是片语 "NOT RECOMMENDED"，代表
-              在特殊情况下也许有适当的理由可以违反准则的要求，
-              但必须了解所有会影响到的事情，在选择另一个主题前审慎衡量。
-              你必须徵询谅解来违反一个 SHOULD NOT。
+              SHOULD NOT，或是片语 “NOT RECOMMENDED”，代表在特殊情况下也许有适当的理由可以违反准则的要求，但必须了解所有会影响到的事情，在选择另一个主题前审慎衡量。你必须徵询谅解来违反一个 SHOULD NOT。
             </p>
           </td>
         </tr>
@@ -133,32 +102,27 @@ Robert Brown
           <th valign="top">选择性 MAY</th>
           <td>
             <p>
-              MAY，或是形容词 "OPTIONAL"，
-              代表某一项完全取决于你。
+              MAY，或是形容词 “OPTIONAL”，代表某件事做不做完全取决于你。
             </p>
           </td>
         </tr>
       </table>
       <p>
-        不像是 RFC，我们在使用上列关键字时，不会将他们都转成大写。
+        与 RFC 不同，我们在使用上列关键字时，不会将他们都转成大写。
       </p>
+      <small>（译注：中文无法使用这些关键字，我尽力斟酌了行文中的口气，来达到效果。）</small>
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="许可与谅解">
     <SUMMARY>
-      有时候违反某些规则是有用甚至必要的。
-      在这些情况里，你必须向适当的人徵询许可或取得谅解。
+      有时候违反某些准则是有用甚至是必要的。在这些情况里，你必须向适当的人徵询许可或取得谅解。
     </SUMMARY>
     <BODY>
       <p>
         许可来自于项目的负责人。
       </p>
-
       <p>
-        在违反准则附近用注解来请求一个谅解，
-        而你的代码审查者将授予谅解。
-        原先的注解应由你签名，且
-        审查者应在审查时往注解添加一个签名许可。
+        在违反准则附近用注解来请求谅解，而你的代码审查者将授予谅解。原先的注解应由你签名，而审查者应在审查时，在注解里添加一个签名许可。
       </p>
 
     </BODY>
@@ -169,40 +133,19 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        某些准则启发自良好的编程普遍原则。
-        某些准则启发自 Common Lisp 的技术特性。
-        某些准则启发自一个技术理由，
-        但在理由消灭后，准则仍被保留了下来。
-        某些像是注解及缩排的准则，
-        完全是基于惯例，而不是有明显的技术价值。
-        无论是什么情况，你必须遵循这些准则，
-        以及其他常见但尚未被纳入此文件的准则。
+        某些准则启发自良好的普遍编程原则。某些准则启发自 Common Lisp 的技术特性。某些准则启发自一个技术理由，但在理由消灭后，准则仍被保留了下来。某些像是注解及缩排的准则，完全是基于惯例，而不是有明显的技术价值。无论是什么情况，你必须遵循这些准则，以及其他常见但尚未被纳入本文件的准则。
       </p>
       <p>
-        你<em>必须</em>遵循惯例。
-        它们对于可读性来说非常重要。
-        当惯例默认被遵循时，
-        违反惯例是某件需要注意的事发生了，并需要留意的信号。
-        当惯例被有组织地违反时，
-        违反惯例是一个需要被忽略的恼人噪音。
+        必须要遵循惯例。惯例对于可读性来说非常重要。当惯例默认被遵循时，违反惯例是某件需要注意的事发生了，并需要留意的信号。当惯例被有组织地违反时，违反惯例会是一个需要被忽略的恼人噪音。
       </p>
       <p>
-        常规惯例<em>是</em>一种教化。
-        目的使你仿效社群的习俗，
-
-        这样你可以更有效率的与现有成员合作。
-        分辨出哪些是启发于技术性、或仅仅是惯例的准则仍然很有用，
-        这样你知道何时可以违反惯例来获得好的成效，
-        以及何时寻求准则帮助你不掉入陷阱。
+        常规惯例是一种教化。目的使你仿效社群的习俗，这样你可以更有效率的与现有成员合作。分辨出哪些是启发于技术性、或仅仅是惯例的准则仍然很有用，这样你知道何时可以违反惯例来获得好的成效，以及何时寻求准则帮助你不掉入陷阱。
       </p>
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="古老代码">
     <p>
-      我们很多代码都是在这些准则存在前所写的。
-      当你在平常编程时遇到违反准则的代码时，修补它们。
-      你不应在没有警告其他开发者或协调的情况下修补，
-      也不应该使合并较大的分支变得比以前困难。
+      我们很多代码都是在这些准则存在前所写的。当你在平常编程时遇到违反准则的代码时，修补它们。你不应在没有警告其他开发者或协调的情况下修补，也不应该使合并较大的分支变得比以前困难。
     </p>
   </STYLEPOINT>
   <STYLEPOINT title="未来议题">
@@ -280,20 +223,16 @@ Robert Brown
 <CATEGORY title="通用准则">
   <STYLEPOINT title="原则">
     <SUMMARY>
-      有某些基本原则，需要软件开发团队的每个开发者铭记在心。
-      无论何时对于详细的准则感到不适当、疑惑或是自相矛盾时，
-      回头看看这些原则来寻求指导：
+      有某些基本原则，需要软件开发团队的每个开发者铭记在心。无论何时对于详细的准则感到不适当、疑惑或是自相矛盾时，回头看看这些原则来寻求指导：
       <ul>
         <li>
-          每一个开发者所写的代码必须让别的开发者容易阅读、理解及改动 —— 即便最初的开发者已经不在了。（这是 “hit by a truck” 理论。）
+          每一个开发者所写的代码必须让别的开发者容易阅读、理解及改动 &#8212;&#8212; 即便最初的开发者已经不在了。（这是 “hit by a truck” 理论。）
         </li>
         <li>
-          每人的代码看起来要一致。理想上，不应该看到几行代码就认出，
-          啊，这个风格是 “Fred 写的代码。”
+          每人的代码看起来要一致。理想上，不应该看到几行代码就认出，啊，这个风格是 “Fred 写的代码”。
         </li>
         <li>
-          别太聪明 ——
-          用最简单可行的办法来完成工作。
+          别太聪明 &#8212;&#8212; 用最简单可行的办法来完成工作。
         </li>
         <li>
           追求精准。
@@ -311,8 +250,7 @@ Robert Brown
           使用常识。
         </li>
         <li>
-          相关代码放在一起。
-          将别人需要理解一部分代码所需的画面跳转减到最低。
+          相关代码放在一起。将别人需要理解一部分代码所需的画面跳转减到最低。
         </li>
       </ul>
     </SUMMARY>
@@ -347,75 +285,44 @@ Robert Brown
         这些准则大部分都是直观的。
       </p>
       <p>
-        客户的易用性代表系统满足客户的需求；
-        需要处理客户的交易量，正常运作时的需求；等等。
+        客户的易用性代表系统满足客户的需求；需要处理客户的交易量，正常运作时的需求；等等。
       </p>
       <p>
-        针对 Lisp 效率这一点，
-        有两个同样复杂的选择，
-        选执行较好的那个。
-        （通常是构造比较少的那个，
-        也就是从堆上配置了较少空间。）
+        针对 Lisp 效率这一点，有两个同样复杂的选择，选执行较好的那个。（通常是构造比较少的那个，也就是从堆上配置了较少空间。）
       </p>
       <p>
-        给定两个选择，其中一个比另一个复杂，
-        选择简单的那个选择，并分析出另一个有更好效能时，
-        才重新审视当初的决定。
+        给定两个选择，其中一个比另一个复杂，选择简单的那个选择，并分析出另一个有更好效能时，才重新审视当初的决定。
       </p>
       <p>
-        然而，避免过早优化。
-        别为了给很少运行的东西提升速度而添加复杂度。
-        因为长期来说，鲜少运行的代码快不快不是那么重要。
+        然而，避免过早优化。别为了给很少运行的东西提升速度而添加复杂度。因为长期来说，鲜少运行的代码快不快不是那么重要。
       </p>
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="架构">
     <SUMMARY>
-      要打造强韧且易维护的代码，
-      关系到如何将代码切分成组件，
-      这些组件如何沟通，
-      改版时改动如何传递，
-      而最重要的是
-      程序员在改版时如何使这些部分相互沟通。
+      要打造强韧且易维护的代码，关系到如何将代码切分成组件，这些组件如何沟通，改版时改动如何传递，而最重要的是程序员在改版时如何使这些部分相互沟通。
     </SUMMARY>
     <BODY>
       <p>
-        如果你的工作影响到其他的小组，或是可被小组之间重用，
-        如添加新组件会影响到其他小组（包括品管及运维），
-        或是非本地作业的事情，你必须至少写几段文字，
-        在开始写代码前 &#8212; 并获得设计组或其他相关当事人的许可，
-        或是在当他们拒绝后，准备好重头开始。
+        如果你的工作影响到其他的小组，或是可被小组之间重用，比如添加新组件会影响到其他小组（包括品管及运维），
+        或是非本地作业的事情，在开始写代码前 &#8212; 你必须至少写几段文字说明一下，并获得设计组或其他相关当事人的许可，不然在他们拒绝之后，准备好重头开始吧。
       </p>
       <p>
-        如果你不知道或不在乎这些议题，
-        问问某些知道或在乎的人。
+        如果你不知道或不在乎这些议题，问问某些知道或在乎的人。
       </p>
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="使用函式库">
     <SUMMARY>
-      通常最简单的办法是使用一个已存在的函式库。
-      或一个还没存在的。
-      在还没有的情况，我们鼓励你开发一个这样的函式库，
-      但你得未雨稠缪。
+      通常最简单的办法是使用一个已存在的函式库。或一个还没存在的。在还没有的情况，我们鼓励你开发一个这样的函式库，但你得未雨稠缪。
     </SUMMARY>
     <BODY>
       <ul>
         <li>
-          绝对不要贸然开始写一个新的函式库，
-          除非你已查证没有可用的函式库存在，
-          而新的函式库完成后可以解决或满足你的需求。
-          这是一个违背<a HREF="http://zh.wikipedia.org/zh-cn/%E9%9D%9E%E6%88%91%E6%89%80%E5%89%B5">非我所创</a>症候群的规则，
-          这个症候群在 Lisp 黑客圈里特别常见。
+          绝对不要贸然开始写一个新的函式库，除非你已查证没有可用的函式库存在，而新的函式库完成后可以解决或满足你的需求。这是一个违背<a HREF="http://zh.wikipedia.org/zh-cn/%E9%9D%9E%E6%88%91%E6%89%80%E5%89%B5">非我所创</a>症候群的规则，这个症候群在 Lisp 黑客圈里特别常见。
         </li>
         <li>
-          无论你采用是新的或古老的函式库，你<em>必须</em>获得许可，才能将
-          第三方代码并入代码库。
-          你必须在对的邮件组讨论这个函式库的用途，
-          并将你的代码交给此领域的专业人士审查，
-          或是由（如果有的话） Lisp 函式库生态系统的人审查。
-          并请准备好说明为什么这个特定的解决方案，
-          比其他可用的函式库更好。
+          无论你采用是新的或古老的函式库，你<em>必须</em>获得许可，才能将第三方代码并入代码库。你必须在对的邮件组讨论这个函式库的用途，并将你的代码交给此领域的专业人士审查，或是由（如果有的话） Lisp 函式库生态系统的人审查。并请准备好说明为什么这个特定的解决方案，比其他可用的函式库更好。
         </li>
         <li>
           某些函式库的授权，与你正撰写的软件不兼容，
@@ -2515,11 +2422,11 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        我们主要用的 Lisp 系统，SBCL，非常挑剔，以及无论常量被重定义至一个
+        我们主要用的 Lisp 系统，SBCL，非常挑剔，只要常量被重定义至一个
         不 <code>EQL</code> 先前数值的新值时，会捕捉一个状况。
         当定义不是数字、字符、或符号（包括布尔及关键字）的变量时，
         绝对不要使用 <code>DEFCONSTANT</code>。
-        取而代之的是，一致地使用不管你项目里所推荐的哪一个替代方案。
+        一致地使用不管你项目里所推荐的替代方案来取代。
       </p>
       <BAD_CODE_SNIPPET>
         ;; 差劲
@@ -2539,27 +2446,21 @@ Robert Brown
         (define-constant +valid-colors+ '(red green blue))
       </CODE_SNIPPET>
       <p>
-        在优化像是 SBCL 或 CMUCL 的实现时要注意，这么定义常量
-        Note that with optimizing implementations, such as SBCL or CMUCL,
-        defining constants this way precludes any later redefinition
-        short of <code>UNINTERN</code>ing the symbol
-        and recompiling all its clients.
-        This may make it "interesting" to debug things at the REPL
-        or to deploy live code upgrades.
-        If there is a chance that your "constants" are not going to be constant
-        over the lifetime of your server processes
-        after taking into consideration scheduled and unscheduled code patches,
-        you should consider using
-        <code>DEFPARAMETER</code> or <code>DEFVAR</code> instead,
-        or possibly a variant of <code>DEFINE-CONSTANT</code>
-        that builds upon some future library implementing global lexicals
-        rather than <code>DEFCONSTANT</code>.
-        You may keep the <code>+plus+</code> convention in these cases
-        to document the intent of the parameter as a constant.
+        在优化像是 SBCL 或 CMUCL 的实现时要注意，
+        这么定义常量使得之后的重定义，不会 <code>UNINTERN</code> 符号，
+        并需要重新编译所有用到常量的代码。
+        这么做使得在 REPL 调试代码“更有趣了”，或可以即时布署代码更新。
+        如果“常量”在整个服务器进程生命周期，有可能会变成非常量时，
+        考虑到如期或不定期的代码补丁后，你应考虑使用
+        <code>DEFPARAMETER</code> 或 <code>DEFVAR</code> 来取代，
+        或是使用 <code>DEFINE-CONSTANT</code> 的变种，
+        建构于某些未来函式库之上，实现了全局词法而不是 <code>DEFCONSTANT</code>。
+        可以在这些情况中保留 <code>+plus+</code> 的惯例，
+        并记录参数作为常量的目的为何。
       </p>
       <p>
-        Also note that <code>LOAD-TIME-VALUE</code> may help you
-        avoid the need for defined constants.
+        注意 <code>LOAD-TIME-VALUE</code> 可能可以帮助你避免掉
+        定义不必要的常量。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -2576,69 +2477,53 @@ Robert Brown
         你应该避免使用 <code>&amp;ALLOW-OTHER-KEYS</code>，
         因为这使得函数的合约变得模糊不清。
         几乎所有实际的函数（通用或不通用），都允许某组关键字，
-        调用者
-        Almost any real function (generic or not) allows a certain
-        fixed set of keywords, as far as its caller is concerned,
-        and those are part of its contract.
-        If you are implementing a method of a generic function,
-        and it does not need to know
-        the values of some of the keyword arguments,
-        you should explicitly <code>(DECLARE (IGNORE ...))</code>
-        all the arguments that you are not using.
-        You must not use <code>&amp;ALLOW-OTHER-KEYS</code>
-        unless you explicitly want to disable checking of allowed keys
-        for all methods when invoking the generic function on arguments
-        that match this particular method.
-        Note that the contract of a generic function belongs in
-        the <code>DEFGENERIC</code>, not in the <code>DEFMETHOD</code>
-        which is basically an "implementation detail" of the generic function
-        as far as the caller of the generic is concerned.
+        对调用者来说，这些关键字用来作为契约的一部分。
+        如果你实现了通用函数的一个方法，且不需要知道某些关键字参数的值，
+        你应该明确的 <code>(DECLARE (IGNORE ...))</code>，
+        将所有你没有用到的参数忽略掉。
+        绝对不要使用 <code>&amp;ALLOW-OTHER-KEYS</code>，
+        除非你明确地想要在调用通用函数，
+        参数匹配这些特定方法的时候，禁止检查所有方法允许的关键字。
+        注意到通用函数的契约是属于 <code>DEFGENERIC</code>，
+        而不是 <code>DEFMETHOD</code>，这对于通用函数的调用者来说，
+        基本上只是通用函数的实现细节。
       </p>
       <p>
-        A case where <code>&amp;ALLOW-OTHER-KEYS</code> is appropriate
-        is when you write a wrapper function to other some other functions
-        that may vary (within the computation or during development),
-        and pass around a plist as a <code>&amp;REST</code> argument.
+        一个适用 <code>&amp;ALLOW-OTHER-KEYS</code> 的情况是，
+        当你为某些（在计算期或开发期间）可能会变的函数写包装器函数时，
+        并传入一个 plist 作为 <code>&amp;REST</code> 参数。
       </p>
       <p>
-        You should avoid using <code>&amp;AUX</code> arguments,
-        except in very short helper functions
-        where they allow you to eschew a <code>LET</code>.
+        应该避免使用 <code>&amp;AUX</code> 参数，
+        除非是非常短的辅助函数，
+        让你避免使用 <code>LET</code>。
       </p>
       <p>
-        You should avoid having both <code>&amp;OPTIONAL</code>
-        and <code>&amp;KEY</code> arguments,
-        unless it never makes sense to specify keyword arguments
-        when the optional arguments are not all specified.
-        You must not have non-<code>NIL</code> defaults
-        to your <code>&amp;OPTIONAL</code> arguments
-        when your function has both <code>&amp;OPTIONAL</code>
-        and <code>&amp;KEY</code> arguments.
+        应该避免同时使用 <code>&amp;OPTIONAL</code> 以及
+        <code>&amp;KEY</code> 参数，
+        除非指定关键字参数永远都没有意义，以及当选择性參數没有全都指定时。
+        当你的函数同时有 <code>&amp;OPTIONAL</code> 以及
+        <code>&amp;KEY</code> 参数时，绝对不要给 <code>&amp;OPTIONAL</code> 参数
+        用一个非 <code>NIL</code> 的缺省值。
       </p>
       <p>
-
-        For maximum portability of a library, it is good form
-        that <code>DEFMETHOD</code> definitions should
-        <code>(DECLARE (IGNORABLE ...))</code>
-        all the required arguments that they are not using.
-        Indeed, some implementations will issue a warning
-        if you <code>(DECLARE (IGNORE ...))</code> those arguments,
-        whereas other implementations will issue a warning
-        if you fail to <code>(DECLARE (IGNORE ...))</code> them.
-        <code>(DECLARE (IGNORABLE ...))</code> works on all implementations.
+        为了让函式库有最大的可移植性，<code>DEFMETHOD</code> 的定义
+        应用 <code>(DECLARE (IGNORABLE ...))</code>
+        忽略所有没用到的参数。
+        如果你忽略 <code>(DECLARE (IGNORE ...))</code> 那些参数，
+        某些实现会发出错误讯息，而其它实现会在你没有
+        <code>(DECLARE (IGNORE ...))</code> 发出错误讯息。
+        <code>(DECLARE (IGNORE ...))</code> 在所有的实现都可用。
       </p>
       <p>
-        You should avoid excessive nesting of binding forms inside a function.
-        If your function ends up with massive nesting,
-        you should probably break it up into several functions or macros.
-        If it is really a single conceptual unit,
-        consider using a macro such as <code>FARE-UTILS:NEST</code>
-        to at least reduce the amount of indentation required.
-        It is bad form to use <code>NEST</code> in typical short functions
-        with 4 or fewer levels of nesting,
-        but also bad form not to use it in the exceptional long functions
-        with 10 or more levels of nesting.
-        Use your judgment and consult your reviewers.
+        应该避免在函数里过度的嵌套绑定。
+        如果函数有大量的嵌套，你应该将其分成数个函数或宏。
+        如果这真的得是一个概念单元，
+        考虑使用像是 <code>FARE-UTILS:NEST</code> 的宏，
+        至少可以减少缩排的数量。
+        在典型的短函数里（四层或更少层的嵌套）使用 <code>NEST</code> 是差劲的，
+        但不在特别长的函数（十层或更多层的嵌套）里使用也是差劲的。
+        运用你的判断力并请教你的审查者。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -2687,7 +2572,7 @@ Robert Brown
       </p>
       <p>
         应该使用 <code>ECASE</code> 以及 <code>ETYPECASE</code>
-        优先于 <code>CASE</code> 及 <coed>TYPECASE</coed>。
+        优先于 <code>CASE</code> 及 <code>TYPECASE</code>。
         即早捕捉到错误是比较好的。
       </p>
       <p>
@@ -2796,12 +2681,10 @@ Robert Brown
         这代价是非常昂贵的。
       </p>
       <p>
-        Also, you should use <code>:START</code> and <code>:END</code> arguments
-        to <code>STRING=</code> or <code>STRING-EQUAL</code>
-        instead of using <code>SUBSEQ</code>;
-        e.g. <code>(string-equal (subseq s1 2 6) s2)</code> should instead be
-        <code>(string-equal s1 s2 :start1 2 :end1 6)</code>
-        This is preferable because it does not cons.
+        还有，应该给 <code>STRING=</code> 或 <code>STRING-EQUAL</code> 使用 <code>:START</code> 及 <code>:END</code> 参数，而不是使用 <code>SUBSEQ</code>；
+        打个比方，应该使用 <code>(string-equal (subseq s1 2 6) s2)</code>
+        来取代 <code>(string-equal s1 s2 :start1 2 :end1 6)</code>。
+        这是比较推荐的，因为它没有构造。
       </p>
       <p>
         应该使用 <code>ZEROP</code>、<code>PLUSP</code> 或
@@ -2820,15 +2703,12 @@ Robert Brown
         再次说明，绝对不要使用给浮点数使用确切的比较。
       </p>
       <p>
-        Monetary amounts should be using decimal (rational) numbers
-        to avoid the complexities and rounding errors
-        of floating-point arithmetic.
-        Libraries such as
-        <a href="http://wukix.com/lisp-decimals">wu-decimal</a>
-        may help you;
-        once again, if this library is not satisfactory, see above about
-        <a href="#Using_Libraries">Using Libraries</a> and
-        <a href="#Open-Sourcing_Code">Open-Sourcing Code</a>.
+        货币数量应该使用十进制（有理数）的数字，来避免浮点运算的复杂度及舍入误差。
+        像是 <a href="http://wukix.com/lisp-decimals">wu-decimal</a>
+        的函式库可能可以帮上忙；
+        再一次强调，如果函式库不能满足你的需求，看看上面关于
+        <a href="#使用函式库">使用函式库</a> 以及
+        <a href="#开源代码">开源代码</a> 的说明。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -2880,67 +2760,59 @@ Robert Brown
         公共介面。
       </p>
       <p>
-        应该不要使用
-        You should not use a sequence of <code>WRITE-XXX</code>
-        where a single <code>FORMAT</code> string could be used.
-        Using format allows you
-        to parameterize the format control string in the future
-        if the need arises.
+        当可以使用单一的 <code>FORMAT</code> 字串，
+        就应该不要使用一系列的 <code>WRITE-XXX</code>。
+        使用 format 允许你参数化控制字串，以备不时之需。
       </p>
       <p>
-        You should use <code>WRITE-CHAR</code> to emit a character
-        rather than <code>WRITE-STRING</code>
-        to emit a single-character string.
+        应该使用 <code>WRITE-CHAR</code> 来输出一个字符，
+        而不是 <code>WRITE-STRING</code> 来输出单字符的字串。
       </p>
       <p>
-        You should not use <code>(format nil "~A" value)</code>;
-        you should use <code>PRINC-TO-STRING</code> instead.
+        应该不要使用 <code>(format nil "~A" value)</code>；
+        而是用 <code>PRINC-TO-STRING</code> 来取代。
       </p>
       <p>
-        You should use <code>~&lt;Newline&gt;</code>
-        or <code>~@&lt;Newline&gt;</code> in format strings
-        to keep them from wrapping in 100-column editor windows,
-        or to indent sections or clauses to make them more readable.
+        应该在格式化字串里使用 <code>~&lt;Newline&gt;</code> 或
+        <code>~@&lt;Newline&gt;</code> 使编辑视窗落在 100 栏，
+        或将小节或子句缩排，使他们的可读性更高。
       </p>
       <p>
-        You should not use <code>STRING-UPCASE</code>
-        or <code>STRING-DOWNCASE</code>
-        on format control parameters;
-        instead, it should use <code>"~:@(~A~)"</code> or <code>"~(~A~)"</code>.
+        应该不要在 format 控制参数里使用 <code>STRING-UPCASE</code> 或
+        <code>STRING-DOWNCASE</code>；
+        应该使用 <code>"~:@(~A~)"</code> 或 <code>"~(~A~)"</code> 来取代。
       </p>
       <p>
-        Be careful when using the <code>FORMAT</code> conditional directive.
-        The parameters are easy to forget.
+        使用 <code>FORMAT</code> 条件指令时要谨慎。
+        很容易会忘掉某些参数，参数介绍如下：
       </p>
       <dl>
-        <dt>No parameters, e.g. <code>"~[Siamese~;Manx~;Persian~] Cat"</code></dt>
+        <dt>没有参数，如 <code>"~[Siamese~;Manx~;Persian~] Cat"</code></dt>
         <dd>
-          Take one format argument, which should be an integer.
-          Use it to choose a clause. Clause numbers are zero-based.
-          If the number is out of range, just print nothing.
-          You can provide a default value
-          by putting a <code>":"</code> in front of the last <code>";"</code>.
-          E.g. in <code>"~[Siamese~;Manx~;Persian~:;Alley~] Cat"</code>,
-          an out-of-range arg prints <code>"Alley"</code>.
+          接受一个格式化参数，参数应该是一个整数。
+          使用它来选择一个子句。子句是从零开始算的。
+          如果数字超出范围，就印出没有就好。
+          你可以通过在最后一个 <code>";"</code> 前印出 <code>":"</code>
+          来提供一个默认值。
+          比如 <code>"~[Siamese~;Manx~;Persian~:;Alley~] Cat"</code>
+          一个超出范围的参数会印出 <code>"Alley"</code>。
         </dd>
-        <dt><code>:</code> parameter, e.g. <code>"~:[Siamese~;Manx~]"</code></dt>
+        <dt><code>:</code> 参数，比如 <code>"~:[Siamese~;Manx~]"</code></dt>
         <dd>
-          Take one format argument.  If it's <code>NIL</code>,
-          use the first clause, otherwise use the second clause.
+          接受一个参数。如果是 <code>NIL</code> 的话使用第一个子句，
+          不然使用第二个子句。
         </dd>
-        <dt><code>@</code> parameter, e.g. <code>"~@[Siamese ~a~]"</code></dt>
+        <dt><code>@</code> 参数, 比如 <code>"~@[Siamese ~a~]"</code></dt>
         <dd>
-          If the next format argument is true,
-          use the choice, but do NOT take the argument.
-          If it's false, take one format argument and print nothing.
-          (Normally the clause uses the format argument.)
+          如果下个格式化参数为真，使用它但不接受参数。
+          如果为假，接受一个格式化参数，并印出没有。
+          （通常子句会使用格式化参数。）
         </dd>
-        <dt><code>#</code> parameter, e.g. <code>"~#[ none~; ~s~; ~s and ~s~]"</code></dt>
+        <dt><code>#</code> 参数，比如 <code>"~#[ none~; ~s~; ~s and ~s~]"</code></dt>
         <dd>
-          Use the number of arguments to format
-          as the number to choose a clause.
-          The same as no parameters in all other ways.
-          Here's the full hairy example:
+          使用参数的数目作为选择子句的数值。
+          其它与没有参数相同。
+          下面是个完整的示例：
           <code>"Items:~#[ none~; ~S~; ~S and ~S~:;~@{~#[~; and~] ~S~^ ,~}~]."</code>
         </dd>
       </dl>
@@ -3029,113 +2901,83 @@ Robert Brown
         <a href="#危险操作">危险操作</a> 的特例。
       </p>
       <p>
-        <code>DYNAMIC-EXTENT</code> 声明的目的是通过减少垃圾回收的次数，
-        来改善性能
-        The purpose of the <code>DYNAMIC-EXTENT</code> declaration
-        is to improve performance by reducing garbage collection
-        in cases where it appears to be obvious that an object's lifetime
-        is within the "dynamic extent" of a function.
-        That means the object is created at some point
-        after the function is called, and
-        the object is always inaccessible after the function exits by any means.
+        <code>DYNAMIC-EXTENT</code> 声明的目的，是通过当对象的生命周期在函数的动态范围时，减少垃圾回收的次数来改善性能。
+        这代表对象是在函数调用后的某个时候创建的，并函数存在后用任何方法都访问不到对象。
       </p>
       <p>
-        By declaring a variable or a local function <code>DYNAMIC-EXTENT</code>,
-        the programmer <em>asserts</em> to Lisp
-        that any object that is ever a value of that variable
-        or the closure that is the definition of the function
-        has a lifetime within the dynamic extent of the (innermost) function
-        that declares the variable.
+        通过声明一个变量或局部函数 <code>DYNAMIC-EXTENT</code>，
+        程序员告诉 Lisp，他<em>断定</em>某个对象会是变量的值，或是函数定义的闭包，
+        在宣告变量的（最里面那个）函数内有动态范围的生命周期。
       </p>
       <p>
-        The Lisp implementation is then free to use that information
-        to make the program faster.
-        Typically, Lisp implementations can take advantage of this knowledge
-        to stack-allocate:
+        Lisp 实现则自由使用这些信息，使得程序运行的更快速。
+        通常 Lisp 实现可以利用这个知识来配置栈：
       </p>
       <ul>
         <li>
-          The lists created to store <code>&amp;REST</code> parameters.
+          创建列表来保存 <code>&amp;REST</code> 参数。
         </li>
         <li>
-          Lists and vector allocated within a function.
+          在函数内配置的列表与向量。
         </li>
         <li>
           闭包。
         </li>
       </ul>
       <p>
-        If the assertion is wrong, i.e. if the programmer's claim is not true,
-        the results can be <em>catastrophic</em>:
-        Lisp can terminate any time after the function returns,
-        or it hang forever, or &#8212; worst of all &#8212;
-        produce incorrect results without any runtime error!
+        如果断言是错误的，也就是说，程序员的声明是错的，
+        结果可能是场<em>大灾难</em>：
+        Lisp 可能在函数返回之后终止，或永远吊在那儿，或 &#8212;
+        最差的情况 &#8212; 提供一个不正确的结果，确没有任何运行期错误！
       </p>
       <p>
-        Even if the assertion is correct,
-        future changes to the function might introduce
-        a violation of the assertion.
-        This increases the danger.
+        即便断言是正确的，未来函数的改动可能引入违反断言的可能。
+        这提高了危险性。
       </p>
       <p>
-        In most cases, such objects are ephemeral.
-        Modern Lisp implementations use generational garbage collectors,
-        which are quite efficient under these circumstances.
+        在多数情况里，这样的对象是短命的。
+        现代的 Lisp 实现使用新一代的垃圾回收器，
+        已经可非常高效地处理这些情况。
       </p>
       <p>
-        Therefore, <code>DYNAMIC-EXTENT</code> declarations
-        should be used sparingly. You must only use them if:
+        因此，<code>DYNAMIC-EXTENT</code> 声明应节制使用。
+        必须只在如下情况使用：
       </p>
       <ol>
         <li>
-          There is some good reason to think that the overall effect
-          on performance is noticeable, and
+          有某些好的理由可以支持性能会全面提升，并且
         </li>
         <li>
-          It is absolutely clear that the assertion is true.
+          绝对确定断言为真的情况。
         </li>
         <li>
-          It is quite unlikely that the code will be changed
-          in ways that cause the declaration to become false.
+          通常代码改变后会使声明变成假的情况很少发生。
         </li>
       </ol>
       <p>
-        Point (1) is a special case of
-        the principle of avoiding premature optimization.
-        An optimization like this only matters if such objects
-        are allocated at a very high rate, e.g. "inside an inner loop".
+        第一点是避免过早优化的特例。
+        像这样的优化只对某些频繁配置的对象有效，比如：“在一个内部循环里”。
       </p>
       <p>
-        Note that is relatively easy to ascertain that
-        a function will not escape the dynamic extent of the current call frame
-        by analyzing where the function is called and
-        what other functions it is passed to;
-        therefore, you should somewhat wary of declaring a function
-        <code>DYNAMIC-EXTENT</code>, but not a high-stress declaration.
-        On the other hand, it is much harder to ascertain that
-        none of the objects ever bound or assigned to that variable
-        will escape the dynamic extent of the current call frame,
-        nor will in any future modification of a function.
-        Therefore, you should be extremely wary
-        of declaring a variable <code>DYNAMIC-EXTENT</code>.
+        注意到，判定一个函数不会逃出当前调用的动态范围是很容易的，
+        可以通过分析函数是在哪被调用的，以及传入的其它函数；
+        因此，你应该步步惊心的声明一个函数是 <code>DYNAMIC-EXTENT</code> 的，
+        但对这样的声明有太大的压力。
+        反过来说，要判定对象不会逃出当前调用的动态范围是很难的，
+        因为无法得知对象在未来函数改动后，会不会被绑定或是被赋给哪个变量。
+        因此，你应该步步惊心的声明一个变量是 <code>DYNAMIC-EXTENT</code> 的。
       </p>
       <p>
-        It's sometimes hard to know what the rate will be.
-        When writing a function or macro
-        that's part of a library of reusable code,
-        there's no a priori way to know how often the code will run.
-        Ideally, tools would be available to discover
-        the availability and suitability of using such an optimization
-        based on running simulations and test cases, but
-        in practice this isn't as easy as it ought to be.
-        It's a tradeoff.
-        If you're very, very sure that the assertion is true
-        (that the object is only used within the dynamic scope),
-        and it's not obvious how much time will be saved
-        and it's not easy to measure,
-        then it may be better to put in the declaration than to leave it out.
-        (Ideally it would be easier to make such measurements
-        than it actually is.)
+        有时候很难知道该用什么样的使用率。
+        当撰写一个是可重用函式库的函数或宏时，
+        无法未卜先知的知道代码运行的频率。
+        理想上，会有可用的工具，基于运行模拟的结果，来找出优化的可用性与适用性。
+        但实际上不是这么简单。
+        这是一个权衡措施。
+        如果你非常、非常确定断言为真（对象仅在动态作用域里使用），
+        并不知道会多常使用，且不容易测量出来，
+        则将其声明会比没有声明来得好。
+        （理想上要做这些测量会比实际来的简单。）
       </p>
     </BODY>
   </STYLEPOINT>
@@ -3429,10 +3271,42 @@ Robert Brown
 </address>
 
 <p>
-  Report Errors / Suggestions / Comments of Chinese translation:
+  Report Errors / Suggestions of Chinese translation:
   <a HREF="https://github.com/JuanitoFatas/Google-Common-Lisp-Style-Guide/issues">
-  Open an issue on Github.
+  Please open an issue on Github
   </a>
 </p>
+
+<div id="disqus_thread"></div>
+<SCRIPT type="text/javascript">
+    var disqus_shortname = 'gclsg';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</SCRIPT>
+<noscript>
+  Please enable JavaScript to view the
+  <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com" class="dsq-brlink">
+  comments powered by <span class="logo-disqus">Disqus</span>
+</a>
+
+
+<SCRIPT type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26995626-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</SCRIPT>
 
 </GUIDE>

@@ -176,7 +176,7 @@ xmlns:fn="http://www.w3.org/2005/xpath-functions">
     <DIV style="margin-left: 50%; font-size: 75%;">
       <P>
         每个风格要点都附有总结，包含了额外可用的信息，通过按下风格要点下方的箭头按钮
-        <SPAN class="showhide_button" style="margin-left: 0; float: none">
+        <SPAN class="showhide_button" style="margin-left: 2px; float: none">
           <xsl:value-of select="$show_button_text"/></SPAN>
         来显示总结：
         按下这大大的箭头按钮，来显示本指南内所有的总结：
@@ -418,10 +418,9 @@ xmlns:fn="http://www.w3.org/2005/xpath-functions">
     </I>
   </xsl:template>
 
-
   <!-- This passes through any HTML elements that the
     XML doc uses for minor formatting -->
-  <xsl:template match="a|address|blockquote|br|center|cite|code|dd|div|dl|dt|em|hr|i|img|li|ol|p|pre|span|table|td|th|tr|ul|var|A|ADDRESS|BLOCKQUOTE|BR|CENTER|CITE|CODE|DD|DIV|DL|DT|EM|HR|I|LI|OL|P|PRE|SPAN|TABLE|TD|TH|TR|UL|VAR">
+  <xsl:template match="a|abbr|address|blockquote|br|center|cite|code|dd|div|dl|dt|em|hr|i|img|li|ol|p|pre|span|table|td|th|tr|ul|var|A|ADDRESS|BLOCKQUOTE|BR|CENTER|CITE|CODE|DD|DIV|DL|DT|EM|HR|I|LI|OL|P|PRE|SPAN|SCRIPT|TABLE|TD|TH|TR|UL|VAR|noscript">
       <xsl:element name="{local-name()}">
           <xsl:copy-of select="@*"/>
           <xsl:apply-templates/>
