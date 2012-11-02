@@ -1,7 +1,3 @@
-<strong>
-Warning: This is a work in progress.
-</strong>
-
 ## [Google Common Lisp Style Guide][GCLSG] 中文版
 
 ### Read Online!
