@@ -54,8 +54,8 @@ Robert Brown
     如果你是在 Google 以外的地方编写 Common Lisp 代码，我们邀请你一同来思考这里所阐述的准则。在你闲暇之馀，也许可以将这些准则，应用至你某些或全部的项目：我们希望你和我们一样，发现这些准则是很有用的。即便你不这么觉得，我们欢迎你评论以及提供建设性的反馈，来帮助我们改善这篇指南，并提供其他成功案例的风格。最后，我们希望激发阅读这篇指南的黑客，一些有用的想法，尤其是初识 Common Lisp 的人。
   </p>
   <p>
-    本指南不是一个 Common Lisp 教程。关于语言的基本信息，请查阅<a HREF="http://www.gigamonkeys.com/book/">Practical Common Lisp</a>。关于语言参考手册，请查阅<a HREF="http://www.lispworks.com/documentation/HyperSpec/Front/index.htm">Common Lisp HyperSpec</a>。
-    关于更详细的风格指南，请看 Peter Norvig 及 Kent Pitman 的<a HREF="http://norvig.com/luv-slides.ps">风格指南</a>。
+    本指南不是一个 Common Lisp 教程。关于语言的基本信息，请查阅 <a HREF="http://www.gigamonkeys.com/book/">Practical Common Lisp</a> 。关于语言参考手册，请查阅 <a HREF="http://www.lispworks.com/documentation/HyperSpec/Front/index.htm">Common Lisp HyperSpec</a> 。
+    关于更详细的风格指南，请看 Peter Norvig 及 Kent Pitman 的 <a HREF="http://norvig.com/luv-slides.ps">风格指南</a> 。
   </p>
 </CATEGORY>
 </OVERVIEW>
