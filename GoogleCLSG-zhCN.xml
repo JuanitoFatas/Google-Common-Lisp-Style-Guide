@@ -5,14 +5,14 @@
   <p>
     <a HREF="https://google-styleguide.googlecode.com/svn/trunk/lispguide.xml"
       TARGET="_blank">
-    Google Common Lisp Style Guide Rev. 1.15</a> in Chinese.
+    Google Common Lisp Style Guide Rev. 1.17</a> in Chinese.
     License:
     <a HREF="http://creativecommons.org/licenses/by/3.0/" TARGET="_blank">CC-By 3.0</a>.
   </p>
 </div>
 
 <p align="right">
-  修订版号 1.15
+  修订版号 1.17
 </p>
 
 <address>
@@ -48,10 +48,10 @@ Robert Brown
     Common Lisp 是一个强大的<abbr title="multi-paradigm programming language">多范式程序语言</abbr>。能力越强，责任越大。
   </p>
   <p>
-    本指南推荐了格式化及风格化的选择，目的在于使你的代码更容易被其他人理解。这些准则适用于我们在 Google 所有用 Common Lisp 写的代码，包括了我们维护、发布的内部应用及免费软件函式库。如果你想贡献代码到我们的代码库，在可以提交补丁之前，你必须遵循这些准则，不然得先修订你的代码，使其符合准则，接著再提交。
+    本指南推荐了格式化及风格化的选择，目的在于使你的代码更容易被其他人理解。针对我们在 Google 开发的内部应用及免费软件函式库，在改动之前你得先遵循这些准则。但是要注意的是，每个项目有自己的一套规则及惯例，违反或覆写了这些通用的准则；比如速度导向的 QPX 低费率搜索引擎就与 QRes 订位系统有著大相迳庭的风格。
   </p>
   <p>
-    如果你是在 Google 以外的地方编写 Common Lisp 代码，我们邀请你一同来思考这里所阐述的准则。在你闲暇之馀，也许可以将这些准则，应用至你某些或全部的项目：我们希望你和我们一样，发现这些准则是很有用的。即便你不这么觉得，我们欢迎你评论以及提供建设性的反馈，来帮助我们改善这篇指南，并提供其他成功案例的风格。最后，我们希望激发阅读这篇指南的黑客，一些有用的想法，尤其是初识 Common Lisp 的人。
+    如果你在 Google 以外的地方编写 Common Lisp 代码，我们邀请你一同来思考这些准则。在不与你自身优先考量起冲突的前提上，你可能会发现某些准则是很有用的。我们欢迎你评论及提供建设性的反馈，讨论如何改善这篇指南，并提供其它成功案例的风格。
   </p>
   <p>
     本指南不是一个 Common Lisp 教程。关于语言的基本信息，请查阅 <a HREF="http://www.gigamonkeys.com/book/">Practical Common Lisp</a> 。关于语言参考手册，请查阅 <a HREF="http://www.lispworks.com/documentation/HyperSpec/Front/index.htm">Common Lisp HyperSpec</a> 。
@@ -929,8 +929,9 @@ Robert Brown
         </li>
       </ul>
       <p>
-        你必须在任何"需要进一步关切"的注解签名并加注日期，
+        你必须在任何“需要进一步关切”的注解签名并加注日期，
         但单纯的警告性注解不用。
+        必须使用 <a HREF="http://www.w3.org/TR/NOTE-datetime">YYYY-MM-DD</a> 格式，使得自动处理这些日期变得更简单点。
       </p>
       <p>
         上面这个策略确保了用 grep 查找 <code>;---</code> 时，
@@ -2955,7 +2956,7 @@ Robert Brown
       </p>
       <p>
         这是比较推荐的，因为它没有额外的构造，并没有超出参数限制的危险（用 <code>CALL-ARGUMENTS-LIMIT</code> 来查看），在某些实现里限制是很小的，长的列表可能把栈弄垮
-        （我们想要代码是不无缘无故地不可移植）。
+        （我们想避免代码含有没来由的不可移植性）。
       </p>
       <p>
         然而当 <code>REDUCE</code> 不必要的增加计算的复杂度时，必须小心不要使用
@@ -2981,7 +2982,7 @@ Robert Brown
         应该永远不要使用 <code>NCONC</code>。
         当不依赖任何副作用时，应该使用 <code>APPEND</code>。
         当需要更新变量时，应该使用 <code>ALEXANDRIA:APPENDF</code>。
-        应该尽可能不要依赖对当前构元使用 <code>CDR</code> 的代码；
+        不要依赖通过 <code>CDR</code> 操作当前构元来完成某事（某些人可能会争论说，这只是建议而不是规范）；
         而如果你这么做的话，必须附上一个明显的注解，
         解释 <code>NCONC</code> 的用途；
         而你应该重新考虑你呈现数据的方式。
@@ -2990,7 +2991,7 @@ Robert Brown
         通过扩充，你应该避免 <code>MAPCAN</code>，
         或 <code>NCONC</code> （这里 NCONC 作动词） <code>LOOP</code> 的特性。
         取而代之的是，应该分别使用 <code>ALEXANDRIA:MAPPEND</code>
-        以及 <code>APPEND</code> 来各别处理 <code>LOOP</code> 的特性。
+        以及 <code>APPEND</code> 来处理 <code>LOOP</code> 的特性。
       </p>
       <p>
         <code>NCONC</code> 鲜少是个好想法，由于它的时间与空间复杂度都没有比
@@ -3008,8 +3009,7 @@ Robert Brown
         你只可能在性能重要的底层函数里，使用 <code>NCONC</code>、<code>MAPCAN</code>
         或 <code>NCONC</code> <code>LOOP</code> 的特性，
         其中列表的用途作为一个合法的数据结构，因为这些列表的长度已知是很短的，
-        且当函数或表达式被累积时，在合约里明确的保证仅返回新的列表。
-        即使如此，这么使用原语必须是稀少的，且需要撰写良好的文档。
+        且当函数或表达式被累积时，在合约里明确的保证仅返回新的列表（新的列表不可以是常量的引号或反引号表达式）。即使如此，这样子使用原语必须是稀少的，且需要撰写良好的文档。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -3017,15 +3017,15 @@ Robert Brown
 <CATEGORY title="陷阱">
   <STYLEPOINT title="函数 FUN? 引用 FUN?">
     <SUMMARY>
-      你平时应该使用 <code>#'FOO</code> 来引用函数 FOO，
-      而不是使用 <code>'FOO</code>。
+      你平时应该使用 <code>#'FUN</code> 来引用函数 FUN，
+      而不是使用 <code>'FUN</code>。
     </SUMMARY>
     <BODY>
       <p>
-        前者，念作 <code>(FUNCTION FOO)</code>，
-        指的是函数对象 FOO，并有正确的作用域。
-        后者，念作 <code>(QUOTE FOO)</code>，
-        指的是符号 FOO，在调用时使用了符号的 <code>FDEFINITION</code>。
+        前者，念作 <code>(FUNCTION FUN)</code>，
+        指的是函数对象 FUN，并有正确的作用域。
+        后者，念作 <code>(QUOTE FUN)</code>，
+        指的是符号 FUN，在调用时使用了符号的 <code>FDEFINITION</code>。
       </p>
       <p>
         当使用一个接受函数式参数的函数时（如：<code>MAPCAR</code>、<code>APPLY</code>、
@@ -3047,6 +3047,7 @@ Robert Brown
         不像是 <code>#'symbol</code> vs <code>'symbol</code> 的情形，
         这两者只是语法上的差异，不对语义造成影响，<!--- works on Genera? -->
         除非前者可在火星上工作，而后者不行。
+
         若你的代码预期要作为，一个兼容所有 Common Lisp 实现的函式库，
         你必须使用前者的风格；不然，使用哪个风格取决于你。
         <code>#'</code>可以理解成一个提示，你正用表达式语境来导入一个函数；
@@ -3214,7 +3215,7 @@ Robert Brown
 </small>
 
 <p align="right">
-修订版号 1.15
+修订版号 1.17
 </p>
 
 
