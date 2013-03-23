@@ -5,21 +5,21 @@
   <p>
     <a HREF="https://google-styleguide.googlecode.com/svn/trunk/lispguide.xml"
       TARGET="_blank">
-    Google Common Lisp Style Guide Rev. 1.17</a> in Chinese.
+    Google Common Lisp Style Guide Rev. 1.18</a> in Chinese.
     License:
     <a HREF="http://creativecommons.org/licenses/by/3.0/" TARGET="_blank">CC-By 3.0</a>.
   </p>
 </div>
 
 <p align="right">
-  修订版号 1.17
+  修订版号 1.18
 </p>
 
 <address>
 Robert Brown
 </address>
 <address>
-  <a HREF="mailto:tunes@google.com">Fran&#231;ois-Ren&#233; Rideau</a>
+  <a HREF="mailto:tunes@google.com">François-René Rideau</a>
 </address>
 
 <address>
@@ -27,7 +27,7 @@ Robert Brown
 </address>
 
 <p align="center">
-  <cite>模式意味着“我的语言不够用了。”</cite> &#8212; Rich Hickey
+  <cite>模式意味着“我的语言不够用了。”</cite> ── Rich Hickey
 </p>
 
 <OVERVIEW>
@@ -226,13 +226,13 @@ Robert Brown
       有某些基本原则，需要软件开发团队的每个开发者铭记在心。无论什么时候，觉得详细的准则不适当、感到疑惑或是自相矛盾时，回头看看这些原则来寻求指导：
       <ul>
         <li>
-          每一个开发者所写的代码必须让别的开发者容易阅读、理解及改动 &#8212;&#8212; 即便最初的开发者已经不在了。（这是 “hit by a truck” 理论。）
+          每一个开发者所写的代码必须让别的开发者容易阅读、理解及改动 ──── 即便最初的开发者已经不在了。（这是 “hit by a truck” 理论。）
         </li>
         <li>
           大家的代码看起来要一致。理想上，不应该看到几行代码就认出，啊，这个风格是“Fred 写的代码”。
         </li>
         <li>
-          别自作聪明 &#8212;&#8212; 用最简单可行的办法来完成工作。
+          别自作聪明 ──── 用最简单可行的办法来完成工作。
         </li>
         <li>
           追求精准。
@@ -304,7 +304,7 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        如果你的工作会影响到其他的小组，或是可被小组之间重用，比如添加新组件会影响到其他小组（包括品管及运维），或是非本地作业的事情，在开始写代码前 &#8212; 你必须至少写几段文字说明一下，并获得设计组或其他相关当事人的许可，不然在他们拒绝之后，准备好重头开始吧。
+        如果你的工作会影响到其他的小组，或是可被小组之间重用，比如添加新组件会影响到其他小组（包括品管及运维），或是非本地作业的事情，在开始写代码前 ── 你必须至少写几段文字说明一下，并获得设计组或其他相关当事人的许可，不然在他们拒绝之后，准备好重头开始吧。
       </p>
       <p>
         如果你不知道或不在乎这些议题，问问某些知道或在乎的人。
@@ -1176,7 +1176,7 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        Common Lisp 系统不要求每个实现实作不会泄漏栈内存的尾递归 &#8212;
+        Common Lisp 系统不要求每个实现实作不会泄漏栈内存的尾递归 ──
         也称为正规尾调用 (PTC)、尾调用消除(TCE) 或尾调用优化 (TCO)。
         这表示由尾调用所产生的无穷递归很快就把栈吃光光了，
         阻碍了函数式编程。
@@ -1404,7 +1404,7 @@ Robert Brown
         <li>
 
           <code>(error (make-condition 'foo-error ...))</code>
-          等价于 <code>(error 'foo-error ...)</code> &#8212;
+          等价于 <code>(error 'foo-error ...)</code> ──
           代码必须使用简洁的形式。
         </li>
         <li> <!--- NTR, Need to Refactor -->
@@ -1700,8 +1700,8 @@ Robert Brown
       </p>
       <p>
         当你写一个由宏定义的宏时（一个产生宏的宏），
-        将其清楚地注解、记录起来，
-        因为这对缺乏经验的人来说是很难理解的。
+        要特别清楚地注解、记录起来，
+        因为这种宏对于任何人来说都是很难理解的。
       </p>
       <p><!--- NTR -->
         绝对不要在没有与开发系统的其他开发者，取得共识的情况下设置新的读取宏。
@@ -1734,7 +1734,7 @@ Robert Brown
         它的好处多多。
         通过将语义隔离在宏之外，宏将变得更简单，更容易写对，并更少受到变化影响，
         也使得开发与维护更容易。
-        用一个更简单语言 &#8212; 无需分阶段的语言 &#8212; 写成的语义，
+        用一个更简单语言 ── 无需分阶段的语言 ── 写成的语义，
         使得维护与开发更容易。
         无需重新编译所有使用宏的代码，就可以调试与更新语义函数也变得可能了。
         出现在栈追踪的语义函数，同时帮助了调试使用了宏的函数。
@@ -1748,7 +1748,7 @@ Robert Brown
         任何由宏创建的函数（闭包）应该要取名字，
         这可以通过使用 <code>FLET</code> 来完成。
         <!--- NTR -->
-        这也允许你声明一个有动态范围的函数（如果是的话 &#8212; 往往便是 &#8212; 请见下文关于<a HREF="#动态范围">动态范围</a>的内容）
+        这也允许你声明一个有动态范围的函数（如果是的话 ── 往往便是 ── 请见下文关于<a HREF="#动态范围">动态范围</a>的内容）
       </p>
       <p><!--- NTR -->
         如果一个宏调用包含了一个形式，
@@ -2315,7 +2315,7 @@ Robert Brown
         两个以上可能性时，使用<code>COND</code>。
       </p>
       <p>
-        但不要在一个 <code>IF</code> 子句里使用 <code>PROGN</code> &#8212;
+        但不要在一个 <code>IF</code> 子句里使用 <code>PROGN</code> ──
         使用 <code>COND</code>、<code>WHEN</code> 或 <code>UNLESS</code>。
       </p>
       <p>
@@ -2530,7 +2530,7 @@ Robert Brown
         我们是运行一个服务器，所以没有控制台！
       </p>
       <p>
-        代码绝对不要使用 <code>PRINT-OBJECT</code> 来与用户沟通 &#8212;
+        代码绝对不要使用 <code>PRINT-OBJECT</code> 来与用户沟通 ──
         <code>PRINT-OBJECT</code> 是只拿来做调试的。
         改动任何 <code>PRINT-OBJECT</code> 方法绝对不可以破坏任何
         公共介面。
@@ -2703,8 +2703,8 @@ Robert Brown
       <p>
         如果断言是错误的，也就是说，程序员的声明是错的，
         结果可能是场<em>大灾难</em>：
-        Lisp 可能在函数返回之后终止，或永远吊在那儿，或 &#8212;
-        最差的情况 &#8212; 提供一个不正确的结果，确没有任何运行期错误！
+        Lisp 可能在函数返回之后终止，或永远吊在那儿，或 ──
+        最差的情况 ── 提供一个不正确的结果，确没有任何运行期错误！
       </p>
       <p>
         即便断言是正确的，未来函数的改动可能引入违反断言的可能。
@@ -2878,7 +2878,7 @@ Robert Brown
       <p>
         注意，如果你大量使用函数式风格，开始写一个新的系统，
         你可能会考虑使用 <a href="http://cliki.net/lambda-reader">lambda-reader</a>，
-        一个让你使用像是 <code>&#955;</code> 字符的系统，而不是写 <code>LAMBDA</code>。
+        一个让你使用像是 <code>λ</code> 字符的系统，而不是写 <code>LAMBDA</code>。
         但你绝对不要在一个现有的系统里，在没有获得其他开发者的允许下，使用这样的语法扩充。
       </p>
     </BODY>
@@ -3034,7 +3034,7 @@ Robert Brown
 </small>
 
 <p align="right">
-修订版号 1.17
+修订版号 1.18
 </p>
 
 
@@ -3043,7 +3043,7 @@ Robert Brown
 </address>
 
 <address>
-  <a HREF="mailto:tunes@google.com">Fran&#231;ois-Ren&#233; Rideau</a>
+  <a HREF="mailto:tunes@google.com">François-René Rideau</a>
 </address>
 
 <p>
