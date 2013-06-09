@@ -2458,8 +2458,8 @@ Robert Brown
       </p>
       <p>
         还有，应该给 <code>STRING=</code> 或 <code>STRING-EQUAL</code> 使用 <code>:START</code> 及 <code>:END</code> 参数，而不是使用 <code>SUBSEQ</code>；
-        打个比方，应该使用 <code>(string-equal (subseq s1 2 6) s2)</code>
-        来取代 <code>(string-equal s1 s2 :start1 2 :end1 6)</code>。
+        打个比方，应该使用 <code>(string-equal s1 s2 :start1 2 :end1 6)</code>
+        来取代 <code>(string-equal (subseq s1 2 6) s2)</code>。
         这是比较推荐的，因为它没有构造。
       </p>
       <p>
