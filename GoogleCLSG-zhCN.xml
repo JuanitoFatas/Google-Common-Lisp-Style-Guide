@@ -3,7 +3,7 @@
 <GUIDE title="Google Common Lisp 风格指南">
 <div align="center">
   <p>
-    <a HREF="https://google-styleguide.googlecode.com/svn/trunk/lispguide.xml"
+    <a HREF="https://juanitofatas.github.io/Google-Common-Lisp-Style-Guide/GoogleCLSG.xml"
       TARGET="_blank">
     Google Common Lisp Style Guide Rev. 1.18</a> in Chinese.
     License:
