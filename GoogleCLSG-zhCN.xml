@@ -5,14 +5,14 @@
   <p>
     <a HREF="https://juanitofatas.github.io/Google-Common-Lisp-Style-Guide/GoogleCLSG.xml"
       TARGET="_blank">
-    Google Common Lisp Style Guide Rev. 1.18</a> in Chinese.
+    Google Common Lisp Style Guide Rev. 1.20</a> in Chinese.
     License:
     <a HREF="http://creativecommons.org/licenses/by/3.0/" TARGET="_blank">CC-By 3.0</a>.
   </p>
 </div>
 
 <p align="right">
-  修订版号 1.18
+  修订版号 1.20
 </p>
 
 <address>
@@ -232,9 +232,6 @@ Robert Brown
           大家的代码看起来要一致。理想上，不应该看到几行代码就认出，啊，这个风格是“Fred 写的代码”。
         </li>
         <li>
-          别自作聪明 ──── 用最简单可行的办法来完成工作。
-        </li>
-        <li>
           追求精准。
         </li>
         <li>
@@ -327,9 +324,6 @@ Robert Brown
           某些函式库的授权，与你正撰写的软件不兼容，则绝对不要将这个函式库认为是可用的。当心授权议题，或请教相关人士。
         </li>
       </ul>
-      <p>
-        如果你有一个绝妙的实现技巧，而这真的如此巧妙，则绝对不要将其放入业务有关的代码；但也许可以被开源函式库的代码所用。如果你的想法对于任何用户来说不普遍，超出了一般的业务用户的认知范围，那么这绝对不是聪明，也称不上巧妙，在这两个情况里，都不要将技巧纳入代码里。
-      </p>
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="开源代码">
@@ -391,7 +385,7 @@ Robert Brown
         当数个正确拼写同时存在时（包括美式及英式英语），而开发者之间尚未有共识存在时，你应该选择较短的拼写。
       </p>
       <p>
-        必须避免使用单词的缩写，除非它是一个相当常用的单词。在这个情况下，你必须<em>始终</em>使用<em>同样的</em>缩写。
+        必须只使用常见与领域相关的缩写，缩写保持一致。可以把受限作用域里的词法变量缩短，来避免符号名称过长。
       </p>
     </SUMMARY>
     <BODY>
@@ -510,22 +504,15 @@ Robert Brown
         应该在每个源文件的最上方，注明维护者及其他重要信息。
       </p>
       <p>
-        不应该在源文件里面附上版权声明。
+        不应该在源文件里附上版权与著作权的信息。
       </p>
     </SUMMARY>
     <BODY>
       <p>
-        每个源文件可以用一个描述文件的单行叙述起头。
+        每个源文件可以从简单描述下这个文件的内容开始。
       </p>
       <p>
-        在刚刚选择性的叙述之后，每一个源文件可以包含一个陈述，说明最初这个代码是谁写的，有哪些主要改动，以及（或是）目前谁是维护者（拥有者）。这让黑客找到对的人来询问关于代码的问题、或是确定没人可以回答询问，变得更容易。然而，如果代码是没人维护的情况，且留下的信息也不是非常有助益时；以及源代码控制找出信息不是很容易的情况，最好略过陈述不写。
-      </p>
-      <p>
-        在选择性的陈述之后，每个文件应该要有一个简短的说明，
-        解释这个文件所有的内容。
-      </p>
-      <p>
-        在说明之后，每个文件应该由这个形式开始：
+        在说明之后，每个文件应该用这个形式起步：
         <code>(in-package :<em>package-name</em>)</code>
       </p>
       <p>
@@ -543,13 +530,15 @@ Robert Brown
         (declaim #.*optimize-default*)
       </CODE_SNIPPET>
       <p>
-        你不应该在每个源代码文件附上版权信息。单独发布的文件例外。
+        不应该在文件顶端放著作权信息，著作权信息可以通过版本控制与 <code>OWNERS</code> 来取得。
+      </p>
+      <p>
+        不应该在每个源代码文件附上版权信息。单独发布的文件例外。
       </p>
       <p>
         每个项目或函式库有个单一的文件，详细说明文件的授权。
         没有授权或版权代表这个项目是<a HREF="http://en.wikipedia.org/wiki/Proprietary_software">专有代码</a>。
       </p>
-
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="垂直空间">
@@ -576,6 +565,9 @@ Robert Brown
       </CODE_SNIPPET>
       <p>
         空行可以把复杂的函数切分成多个部分。一般来说，你应该要把大函数切成几个小函数，而不是添加垂直空间，让它读起来比较好读。如果你不能够切成小函数，你应该要使用 <code>;;</code> 注解，说明每个函数的部分各是干嘛的。
+      </p>
+      <p>
+        应该要努力保留顶层形式（含注解），但文档字串最好保持简短。超过一页的顶层形式很少见，有这种情况的话，确定用途是正当的。这也可以应用到 <code>eval-when</code> 里的形式，而不是限制 <code>eval-when</code> 这个形式。另一方面，<code>defpackage</code> 可能更长，因为可能含有长长的符号列表。
       </p>
       <p>
         每个顶层形式应该要少于 61 行，包含注解，但文档字串不算在内。这是用于在 <code>eval-when</code> 里的每个形式，而不是 <code>eval-when</code> 本身。另外 <code>defpackage</code> 可以超過 61 行，因为它可能有长长的列表清单。
@@ -812,49 +804,25 @@ Robert Brown
   </STYLEPOINT>
   <STYLEPOINT title="小心注意">
     <SUMMARY>
-      需要特别留意的注解，必须遵循使用 <code>---</code> 前缀的惯例，包括了晦涩的编码技巧、TODO 事项、问题、损坏及危险。
+      对于需要特别注意的代码，必须遵循使用 TODO 注解的规范。
+      针对使用了晦涩形式的代码，必须要加上注解。
     </SUMMARY>
     <BODY>
-      <ul>
-        <li>
-          用 <code>;--- </code> 写一个警告性的注解，比如解释这段涉及的代码为什么特别棘手、微妙，或不是这么直观的。
-        </li>
-        <li>
-          用 <code>;---??? </code> 写一个严重问题，需要尽快通过修补代码或是文档来解决。
-        </li>
-        <li>
-          用 <code>;---!!! </code> 来识别坏掉的代码，但出于某些原因，你不能在这个时候修复它。最好不要在新的代码太常使用这个。
-        </li>
-        <li>
-          用 <code>;---*** </code> 来识别重大危险，举例来说，重要的功能不能用了，或是重要的设计问题仍未解决。在代码上线之前，将任何需要解决的事情标记起来。
-        </li>
-      </ul>
       <p>
-        必须给任何“需要进一步关切”的注解签名并加注日期，但单纯的警告性注解不用。必须使用 <a HREF="http://www.w3.org/TR/NOTE-datetime">YYYY-MM-DD</a> 格式，使得自动处理这些日期变得更简单点。
+        For comments requiring special attention, such as
+        incomplete code, todo items, questions, breakage, and danger,
+        include a TODO comment indicating the type of problem,
+        its nature, and any notes on how it may be addressed.
       </p>
       <p>
-        上面这个策略确保了用 grep 查找 <code>;---</code> 时，永远会给出所有需要谨慎处理的注解，并且每件事都知道该找谁商量。
-      </p>
-      <p>
-        需要用到 <code>;---</code> 的注解，仅在第一行使用 <code>;---</code>。其他行应使用空格来垂直对齐。这样一来，grep 也会给出问题的数目。
-      </p>
-      <p>
-        在注解前缀后面应插入一个空格。
-      </p>
-      <p>
-        你也可以在多重分号注解里面使用这些前缀。
-      </p>
-      <p>
-        某些人喜欢使用像是 <code>FIXME</code> 或是 <code>TODO</code> 这样的单词。你可以使用它们，但它们前面必须有 <code>---</code>。
-      </p>
-      <p>
-        当已经知道代码尚未完成，而你想要指出有哪些工作还需要完成时，使用 TODO 注解，
+        对于需要特别留意的注解，像是未完成的代码、待办事项、问题、损坏及危险，
+        加上一个 TODO 注解指出问题的类型及本质，以及其他需要注意的事项。
       </p>
       <p>
         TODO 注解的格式，由 TODO （全大写）开始，接着是括号，括号内是你的邮箱或是其他人，再来是一个冒号跟空格，以及额外需要完成或想要完成的工作说明。包含在此注解内的用户名，是理解这个缺陷的那个人。TODO 注解并不代表一定要修补问题。
       </p>
       <p>
-        当给注解签名时，应该使用你的用户名（针对公司内部代码），或是完整 email 地址（针对公司外部可见代码），而不只是名字的首字母缩写。
+        当给注解签名时，应该使用用户名（针对公司内部代码），或是完整 email 地址（针对公司外部可见代码），而不只是名字的首字母缩写。
       </p>
       <CODE_SNIPPET>
         ;;--- TODO(george@gmail.com): Refactor to provide a better API.
@@ -865,6 +833,10 @@ Robert Brown
       <CODE_SNIPPET>
         ;;--- TODO(brown): Remove this code after release 1.7 or before November, 2012.
       </CODE_SNIPPET>
+      <p>
+        对于使用了晦涩形式来完成工作的代码，必须加上注解叙述晦涩形式的用途，
+        以及晦涩形式完成了什么工作。
+      </p>
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="特定领域语言">
@@ -892,7 +864,9 @@ Robert Brown
 <CATEGORY title="命名">
   <STYLEPOINT title="符号准则">
     <SUMMARY>
-      使用小写。不要缩写。遵循标点符号的惯例。
+      使用小写。
+      遵循<a href="#Spelling">拼写与缩写一节</a>的惯例。
+      遵循标点符号的惯例。
     </SUMMARY>
     <BODY>
       <p>
@@ -908,9 +882,7 @@ Robert Brown
         连字符必须用 <code>"-"</code>，不要用 <code>"/"</code> 或是 <code>"."</code>。除非你有一个无懈可击的理由，以及你的提议取得了来自其他黑客的许可。
       </p>
       <p>
-        普遍来说，少用单词缩写。避免使用单词缩写，除非它是一个非常常用的单词，在这个情况下，你必须<em>一致地</em>使用<em>同样的</em>缩写。缩写可以节制地使用避免符号名过长；当有一个非常长的名字时，100 栏的限制很快就用完了。必须特别在导出名字时，避免不一致的缩写。针对限制性作用域的词法变量，缩写是可以接受的。
-      </p>
-      <p>
+        参考<a href="#Spelling">拼写与缩写</a>一节，以了解使用缩写的准则。
       </p>
       <BAD_CODE_SNIPPET>
         ;; 差劲
@@ -979,11 +951,11 @@ Robert Brown
   </STYLEPOINT>
   <STYLEPOINT title="判断式名称">
     <SUMMARY>
-      判断式函数的名字以 <code>"P"</code> 结尾。
+      判断式函数与变量的名字以 <code>"P"</code> 结尾。
     </SUMMARY>
     <BODY>
       <p>
-        你应该将返回布尔值的函数，
+        你应该将返回布尔值的函数与变量的
         结尾以 <code>"P"</code> 或 <code>"-P"</code> 命名，
         来表示他们是判断式。
         一般来说，你应该使用，
@@ -1718,6 +1690,7 @@ Robert Brown
         你应该将此参数用 <code>-form</code> 字尾命名。
         这个惯例让使用宏的使用者更清楚哪些是会被求值的 Lisp 表达式，
         而那些不是。
+        常见名称如 <code>body</code> 以及 <code>end</code> 是这个规则的例外。
       </p>
       <p>
         当情况适用时，你应该仿效使用所谓的 <code>CALL-WITH</code> 风格。
@@ -2243,10 +2216,9 @@ Robert Brown
   <STYLEPOINT title="定义函数">
     <SUMMARY>
       你应该正确使用
-      <code>&amp;OPTIONAL</code>,
-      <code>&amp;KEY</code>,
-      以及
-      <code>&amp;AUX</code> 参数。
+      <code>&amp;OPTIONAL</code> 以及
+      <code>&amp;KEY</code> 参数。
+      不要使用 <code>&amp;AUX</code> 参数。
     </SUMMARY>
     <BODY>
       <p>
@@ -2271,8 +2243,6 @@ Robert Brown
       </p>
       <p>
         应该避免使用 <code>&amp;AUX</code> 参数，
-        除非是非常短的辅助函数，
-        让你避免使用 <code>LET</code>。
       </p>
       <p>
         应该避免同时使用 <code>&amp;OPTIONAL</code> 以及
@@ -3034,7 +3004,7 @@ Robert Brown
 </small>
 
 <p align="right">
-修订版号 1.18
+修订版号 1.20
 </p>
 
 
