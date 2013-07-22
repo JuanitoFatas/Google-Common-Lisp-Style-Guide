@@ -5,7 +5,7 @@
 
 <p align="right">
 
-Revision 1.18
+Revision 1.20
 </p>
 
 
@@ -67,7 +67,7 @@ Robert Brown
     on how to improve our guide, and
     on what alternate styles work for you and why.
   </p>
-  
+
   <p>
     This guide is not a Common Lisp tutorial.
     For basic information about the language, please consult
@@ -161,7 +161,7 @@ Robert Brown
       <p>
         Permission comes from the owners of your project.
       </p>
-      
+
       <p>
         Forgiveness is requested in a comment
         near the point of guideline violation,
@@ -169,7 +169,7 @@ Robert Brown
         The original comment should be signed by you, and
         the reviewer should add a signed approval to the comment at review time.
       </p>
-      
+
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="Conventions">
@@ -201,7 +201,7 @@ Robert Brown
       <p>
         Conventional guidelines <em>are</em> indoctrination.
         Their purpose is to make you follow the mores of the community,
-        
+
         so you can more effectively cooperate with existing members.
         It is still useful to distinguish the parts that are technically motivated
         from the parts that are mere conventions,
@@ -312,10 +312,6 @@ Robert Brown
           Everybody's code should look the same.
           Ideally, there should be no way to look at lines of code
           and recognize it as "Fred's code" by its style.
-        </li>
-        <li>
-          Don't be "clever" —
-          do the simplest thing that could possibly work properly.
         </li>
         <li>
           Be precise.
@@ -453,17 +449,7 @@ Robert Brown
           Be aware of these issues, or consult with people who are.
         </li>
       </ul>
-      
-      <p>
-        Note that if you have a "clever" implementation trick,
-        and your trick really is clever,
-        then you must definitely not include it in business specific code;
-        but it may have its place in an open-source library used by the code.
-        If your idea is not general purpose enough to have any users
-        beyond your regular business users,
-        then it is definitely either not clever enough or way too clever,
-        and in either case does not belong in the code.
-      </p>
+
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="Open-Sourcing Code">
@@ -475,7 +461,7 @@ Robert Brown
         separate from your main project and then
         have your project import it like any other open-source library.
       </p>
-      
+
     </SUMMARY>
     <BODY>
       <p>
@@ -484,7 +470,7 @@ Robert Brown
         and open-source the general-purpose parts,
         while keeping the business-specific parts a trade secret.
       </p>
-      
+
       <p>
         Open-Sourcing code has many advantages,
         including being able to leverage third parties for development,
@@ -496,7 +482,7 @@ Robert Brown
         even of code that (at least initially)
         is not directly usable by third parties.
       </p>
-      
+
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="Development Process">
@@ -575,10 +561,10 @@ Robert Brown
         you should choose the shorter spelling.
       </p>
       <p>
-        You must avoid using abbreviations for words,
-        unless it's a word that is used very frequently,
-        in which case you must use
-        the <em>same</em> abbreviation <em>consistently</em>.
+        You must use only common and domain-specific abbreviations, and
+        must be consistent with these abbreviations.  You may abbreviate
+        lexical variables of limited scope in order to avoid overly-long
+        symbol names.
       </p>
     </SUMMARY>
     <BODY>
@@ -648,7 +634,7 @@ Robert Brown
           Use "referer", not "referrer", in the context of the HTTP protocol.
         </li>
       </ul>
-      
+
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="Line length">
@@ -663,7 +649,7 @@ Robert Brown
         since good style encourages the use of
         descriptive variables and function names.
       </p>
-      
+
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="Indentation">
@@ -682,8 +668,8 @@ Robert Brown
         and special rules for domain specific languages.
         Each project may have some file to customize indentation; use it.
       </p>
-      
-      
+
+
       <p>
         Use indentation to make complex function applications easier to read.
         When an application does not fit on one line
@@ -712,37 +698,19 @@ Robert Brown
   <STYLEPOINT title="File Header">
     <SUMMARY>
       <p>
-        You must include maintainership and other important information
-        at the top of each source file.
+        You should include a description at the top of each source file.
       </p>
       <p>
-        You should not include a copyright statement in source files.
+        You should include neither authorship nor copyright information in a source file.
       </p>
     </SUMMARY>
     <BODY>
       <p>
-        Every source file may begin with a one-line description of the file.
+        Every source file should begin with a brief description
+        of the contents of that file.
       </p>
       <p>
-        After that optional description,
-        every source file may prominently include a statement
-        about who originally wrote the code,
-        made major changes, and/or is the current owner/maintainer.
-        This makes it easier for hackers to locate
-        whom to ask questions about the code,
-        or to identify that no one is left to reply to such inquiries.
-        However, consider that the information
-        is not very helpful if it is not maintained;
-        unless it brings information
-        that cannot be easily extracted from source control,
-        it is better skipped.
-      </p>
-      <p>
-        After that optional statement, every file should follow with
-        a brief explanation of what the file contains.
-      </p>
-      <p>
-        After that explanation, every file should start the code itself with an
+        After that description, every file should start the code itself with an
         <code>(in-package :<em>package-name</em>)</code> form.
       </p>
       <p>
@@ -760,6 +728,11 @@ Robert Brown
         (declaim #.*optimize-default*)
       </CODE_SNIPPET>
       <p>
+        You should not include authorship information at the top of a file,
+        that information is available from version control and
+        <code>OWNERS</code>.
+      </p>
+      <p>
         You should not include copyright information in individual source code files.
         An exception is made for files meant to be disseminated as standalone.
       </p>
@@ -768,7 +741,7 @@ Robert Brown
         Absence of a <tt>LICENSE</tt> or <tt>COPYING</tt> file
         means the project is proprietary code.
       </p>
-      
+
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="Vertical white space">
@@ -805,9 +778,10 @@ Robert Brown
         what each of the separated parts of the function does.
       </p>
       <p>
-        Every top-level form
-        should be fewer than 61 lines long,
-        including comments but excluding the documentation string.
+        You should strive to keep top-level forms,
+        including comments but excluding the documentation string, of
+        appropriate length; preferrably short.  Forms extending beyond a
+        single page should be rare and their use should be justfied.
         This applies to each of the forms in an <code>eval-when</code>,
         rather than to the <code>eval-when</code> itself.
         Additionally, <code>defpackage</code> forms may be longer,
@@ -1114,66 +1088,16 @@ Robert Brown
   </STYLEPOINT>
   <STYLEPOINT title="Attention Required">
     <SUMMARY>
-      You must follow the convention of using <code>---</code>
-      for comments requiring special attention,
-      including unobvious tricks, TODO items, questions, breakage, danger.
+      You must follow the convention of using TODO comments
+      for code requiring special attention.
+      For code using unobvious forms, you must include a comment.
     </SUMMARY>
     <BODY>
-      <ul>
-        <li>
-          <code>;--- </code> prefixes a cautionary comment,
-          e.g. explaining why the code in question is particularly
-          tricky, delicate, or non-obvious.
-        </li>
-        <li>
-          <code>;---??? </code> prefixes a serious question
-          which needs to be resolved soon,
-          by fixing either the code or its documentation.
-        </li>
-        <li>
-          <code>;---!!! </code> identifies code which is broken,
-          but which for some reason you cannot fix at this time.
-          You should not use this often for new code.
-        </li>
-        <li>
-          <code>;---*** </code> identifies active <em>DANGER</em>,
-          for instance where important functionality is stubbed out,
-          or a large design issue remains unresolved.
-          Anything so marked must be fixed
-          before code is rolled into production.
-        </li>
-      </ul>
       <p>
-        You must sign and date
-        any of the above "requiring further attention" comments
-        (but not mere cautionary explanations).
-        You must use the
-        <a HREF="http://www.w3.org/TR/NOTE-datetime">YYYY-MM-DD</a>
-        format for dates to make automated processing of such dates easier.
-      </p>
-      <p>
-        This strategy ensures that grepping for <code>;---</code>
-        will always yield all the comments that require caution,
-        as well as whom to talk to about each one.
-      </p>
-      <p>
-        Only use <code>;---</code> on the first line of such a comment.
-        Other lines should use spaces to align vertically.
-        This way, grepping will also yield a count of the number of issues.
-      </p>
-      <p>
-        You should insert a space after this comment prefix.
-      </p>
-      <p>
-        You may use these with multiple-semicolon comments as well.
-      </p>
-      <p>
-        Some people like to use words like <code>FIXME</code> or <code>TODO</code>.
-        You may use these, but they must be preceded with <code>---</code>.
-      </p>
-      <p>
-        Use TODO comments when the code is known to be incomplete
-        and you want to indicate what work remains to be done.
+        For comments requiring special attention, such as
+        incomplete code, todo items, questions, breakage, and danger,
+        include a TODO comment indicating the type of problem,
+        its nature, and any notes on how it may be addressed.
       </p>
       <p>
         The comments begin with <code>TODO</code> in all capital letters,
@@ -1189,7 +1113,7 @@ Robert Brown
         you should use your username (for code within the company)
         or full email address (for code visible outside the company),
         not just initials.
-        
+
       </p>
       <CODE_SNIPPET>
         ;;--- TODO(george@gmail.com): Refactor to provide a better API.
@@ -1201,6 +1125,10 @@ Robert Brown
       <CODE_SNIPPET>
         ;;--- TODO(brown): Remove this code after release 1.7 or before November, 2012.
       </CODE_SNIPPET>
+      <p>
+        For code that uses unobvious forms to accomplish a task, you must include a comment
+        stating the purpose of the form and the task it accomplishes.
+      </p>
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="Domain-Specific Languages">
@@ -1241,7 +1169,7 @@ Robert Brown
   <STYLEPOINT title="Symbol guidelines">
     <SUMMARY>
       You should use lower case.
-      You should not abbreviate.
+      You should follow the rules for <a href="#Spelling">Spelling and Abbreviations</a>
       You should follow punctuation conventions.
     </SUMMARY>
     <BODY>
@@ -1274,17 +1202,8 @@ Robert Brown
         unless you have a well-documented overarching reason to,
         and permission from other hackers who review your proposal.
       </p>
-      <p>
-        Generally, you should do not abbreviate words.
-        You must avoid using abbreviations for words,
-        unless it's a word that is used very frequently,
-        in which case you must use
-        the <em>same</em> abbreviation <em>consistently</em>.
-        Abbreviations may also be used sparingly to avoid overly-long symbol names;
-        it's easy to run into 100-column limit when there are very long names!
-        You must especially avoid inconsistent abbreviations in exported names.
-        For lexical variables of limited scope, abbreviations are fine.
-      </p>
+        See the section on <a href="#Spelling">Spelling and Abbreviations</a>
+        for guidelines on using abbreviations.
       <p>
       </p>
       <BAD_CODE_SNIPPET>
@@ -1402,12 +1321,12 @@ Robert Brown
   </STYLEPOINT>
   <STYLEPOINT title="Predicate names">
     <SUMMARY>
-      Names of predicate functions end with a <code>"P"</code>.
+      Names of predicate functions and variables end with a <code>"P"</code>.
     </SUMMARY>
     <BODY>
       <p>
-        You should name boolean-valued functions with a trailing
-        <code>"P"</code> or <code>"-P"</code>,
+        You should name boolean-valued functions and variables with a
+        trailing <code>"P"</code> or <code>"-P"</code>,
         to indicate they are predicates.
         Generally, you should use
         <code>"P"</code> when the rest of the function name is one word
@@ -1733,7 +1652,7 @@ Robert Brown
         You should use suitable infrastructure
         to automate the appropriate declaration of such variables.
       </p>
-      
+
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="Assignment">
@@ -1850,12 +1769,12 @@ Robert Brown
         <li>
           Complex bug-checks may need to use <code>ERROR</code>
           instead of <code>ASSERT</code>.
-          
+
         </li>
         <li>
           When writing a server, you must not call <code>WARN</code>.
           Instead, you should use the appropriate logging framework.
-          
+
         </li>
         <li>
           Code must not call <code>SIGNAL</code>.
@@ -1870,7 +1789,7 @@ Robert Brown
           e.g. type <code>T</code>, or use <code>IGNORE-ERRORS</code>.
           Instead, let unknown conditions propagate to
           the standard ultimate handler for processing.
-          
+
         </li>
         <li>
           There are a few places where handling all conditions is appropriate,
@@ -1928,7 +1847,7 @@ Robert Brown
       in order to enable compile-time and run-time sanity-checking.
     </SUMMARY>
     <BODY>
-      
+
       <p>
         If your function is using a special variable as an implicit argument,
         it's good to put in a <code>CHECK-TYPE</code> for the special variable,
@@ -1937,7 +1856,7 @@ Robert Brown
         that this variable is being used implicitly as an argument,
         and also to help detect bugs.
       </p>
-      
+
       <p>
         Using <code>(declare (type ...))</code>
         is the least-desirable mechanism to use
@@ -2006,7 +1925,7 @@ Robert Brown
         Otherwise, you should use accessors,
         <code>WITH-ACCESSORS</code>
       </p>
-      
+
       <p>
         Accessor names generally follow a convention of
         <code>&lt;protocol-name&gt;-&lt;slot-name&gt;</code>,
@@ -2127,7 +2046,7 @@ Robert Brown
         it would disable error checking for misspelled or wrong keywords
         in <code>MAKE-INSTANCE</code> calls!
       </p>
-      
+
       <p>
         A typical <code>PRINT-OBJECT</code> method might look like this:
       </p>
@@ -2230,7 +2149,7 @@ Robert Brown
         and
         <code>(declaim (inline foo))</code>.
       </p>
-      
+
       <p>
         You can also use a compiler-macro
         as a way to speed up function execution
@@ -2248,7 +2167,7 @@ Robert Brown
         without a consensus among the developers of your system.
         Reader macros must not leak out of the system that uses them
         to clients of that system or other systems used in the same project.
-        You must software such as
+        You must use software such as
         <code>cl-syntax</code> or <code>named-readtables</code>
         to control how reader macros are used.
         This clients who desire it may use the same reader macros as you do.
@@ -2261,6 +2180,8 @@ Robert Brown
         you should name the parameter with the suffix <code>-form</code>.
         This convention helps make it clearer to the macro's user
         which parameters are Lisp forms to be evaluated, and which are not.
+        The common names <code>body</code> and <code>end</code> are
+        exceptions to this rule.
       </p>
       <p>
         You should follow the so-called <code>CALL-WITH</code> style when it applies.
@@ -2302,7 +2223,7 @@ Robert Brown
       <p>
         Any functions (closures) created by the macro should be named,
         which can be done using <code>FLET</code>.
-        
+
         This also allows you to declare the function to be of dynamic extent
         (if it is — and often it is; yet see below regarding
         <a href="#DYNAMIC-EXTENT">DYNAMIC-EXTENT</a>).
@@ -2576,7 +2497,7 @@ Robert Brown
         <code>ALEXANDRIA:FORMAT-SYMBOL</code>
         to create the symbols you need.
       </p>
-      
+
     </BODY>
   </STYLEPOINT>
 </CATEGORY>
@@ -2635,7 +2556,7 @@ Robert Brown
         one for the value that is known if any,
         and one to denote whether the value was known or found.
       </p>
-      
+
       <p>
         When working with database classes, keep in mind that
         <code>NIL</code> need not always map to <code>'NULL'</code>
@@ -2855,10 +2776,10 @@ Robert Brown
         (defconstant +google-url+ "http://www.google.com/")
         (defconstant +valid-colors+ '(red green blue))
       </BAD_CODE_SNIPPET>
-      
-      
-      
-      
+
+
+
+
       <p>
         Open-Source libraries may use
         <code>ALEXANDRIA:DEFINE-CONSTANT</code>
@@ -2899,10 +2820,9 @@ Robert Brown
   <STYLEPOINT title="Defining Functions">
     <SUMMARY>
       You should make proper use of
-      <code>&amp;OPTIONAL</code>,
-      <code>&amp;KEY</code>,
-      and
-      <code>&amp;AUX</code> arguments.
+      <code>&amp;OPTIONAL</code> and
+      <code>&amp;KEY</code> arguments.
+      You should not use <code>&amp;AUX</code> arguments.
     </SUMMARY>
     <BODY>
       <p>
@@ -2932,9 +2852,7 @@ Robert Brown
         and pass around a plist as a <code>&amp;REST</code> argument.
       </p>
       <p>
-        You should avoid using <code>&amp;AUX</code> arguments,
-        except in very short helper functions
-        where they allow you to eschew a <code>LET</code>.
+        You should avoid using <code>&amp;AUX</code> arguments.
       </p>
       <p>
         You should avoid having both <code>&amp;OPTIONAL</code>
@@ -2970,7 +2888,7 @@ Robert Brown
         with 10 or more levels of nesting.
         Use your judgment and consult your reviewers.
       </p>
-      
+
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="Conditional Expressions">
@@ -3184,7 +3102,7 @@ Robert Brown
         <a href="#Using_Libraries">Using Libraries</a> and
         <a href="#Open-Sourcing_Code">Open-Sourcing Code</a>.
       </p>
-      
+
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="Iteration">
@@ -3359,7 +3277,7 @@ Robert Brown
         is incorrect in case of overflow, and can
         have undefined behavior when called with anything but fixnums.
       </p>
-      
+
       <p>
         More generally, unsafe operations
         will yield the correct result faster
@@ -3572,7 +3490,7 @@ Robert Brown
         that cover those cases instead of calling <code>REDUCE</code>,
         first defining them in a suitable library if need be.
       </p>
-      
+
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="Avoid NCONC">
@@ -3676,7 +3594,7 @@ Robert Brown
         Unlike the case of <code>#'symbol</code> vs <code>'symbol</code>,
         it is only a syntactic difference with no semantic impact,
         except that the former works on Genera and the latter doesn't.
-        
+
         You must use the former style if your code is intended as a library
         with maximal compatibility to all Common Lisp implementations;
         otherwise, it is optional which style you use.
@@ -3761,7 +3679,7 @@ Robert Brown
         such as <code>ASDF:SYSTEM-RELATIVE-PATHNAME</code> or
         the underlying <code>ASDF-UTILS:COERCE-PATHNAME</code>.
       </p>
-      
+
       <p>
         Finally, be aware that paths may change between
         the time you build the Lisp image for your application,
@@ -3772,7 +3690,7 @@ Robert Brown
         <code>ASDF</code> for instance requires you to reset its paths
         with <code>ASDF:CLEAR-CONFIGURATION</code>.
       </p>
-      
+
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="SATISFIES">
@@ -3890,7 +3808,7 @@ Robert Brown
 </small>
 
 <p align="right">
-Revision 1.18
+Revision 1.20
 </p>
 
 
