@@ -71,4 +71,4 @@ Set appropriate properties on lispguide.xml
 ------------------------------------------------------------------------
 r88 | tunes@google.com | 2012-10-11 02:50:04 +0800 (四, 11 10 2012) | 2 lines
 
-Publish the Google Common Lisp Style Guide, revision 1.8, for public review.
+Publish the Google Common Lisp Style Guide, revision 1.08, for public review.
