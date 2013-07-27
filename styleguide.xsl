@@ -429,7 +429,7 @@ xmlns:fn="http://www.w3.org/2005/xpath-functions">
   <xsl:template name="TOC">
     <xsl:param name="root"/>
     <DIV class="toc">
-      <DIV class="toc_title">目录</DIV>
+      <DIV class="toc_title">Table of Contents</DIV>
       <TABLE>
       <xsl:for-each select="$root/CATEGORY">
         <TR valign="top">
