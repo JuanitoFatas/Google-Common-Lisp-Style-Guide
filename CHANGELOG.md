@@ -1,4 +1,11 @@
 ------------------------------------------------------------------------
+r112 | mark@chromium.org | 2013-09-26 05:16:00 +0800 (四, 26  9 2013)
+
+Update Common Lisp style guide to 1.23:
+ - fare-matcher was superseded by optima.
+ - Clarify wording regarding DYNAMIC-EXTENT.
+
+------------------------------------------------------------------------
 r107 | mark@chromium.org | 2013-07-13 02:53:13 +0800 (六, 13  7 2013)
 
 
@@ -28,47 +35,47 @@ Update Common Lisp style guide to 1.18:
 Google Common Lisp Style Guide, revision 1.17
 
 ------------------------------------------------------------------------
-r96 | tunes@google.com | 2012-11-08 12:31:59 +0800 (四, 08 11 2012) | 2 lines
+r96 | tunes@google.com | 2012-11-08 12:31:59 +0800 (四, 08 11 2012)
 
 Google Common Lisp Style Guide, revision 1.16
 
 ------------------------------------------------------------------------
-r95 | tunes@google.com | 2012-10-18 06:13:51 +0800 (四, 18 10 2012) | 2 lines
+r95 | tunes@google.com | 2012-10-18 06:13:51 +0800 (四, 18 10 2012)
 
 Google Common Lisp Style Guide, revision 1.15
 
 ------------------------------------------------------------------------
-r94 | tunes@google.com | 2012-10-16 04:57:01 +0800 (二, 16 10 2012) | 2 lines
+r94 | tunes@google.com | 2012-10-16 04:57:01 +0800 (二, 16 10 2012)
 
 Google Common Lisp Style Guide updated to 1.13.
 
 ------------------------------------------------------------------------
-r93 | tunes@google.com | 2012-10-14 21:47:38 +0800 (日, 14 10 2012) | 2 lines
+r93 | tunes@google.com | 2012-10-14 21:47:38 +0800 (日, 14 10 2012)
 
 Google Common Lisp Style Guide, revision 1.12
 
 ------------------------------------------------------------------------
-r92 | tunes@google.com | 2012-10-13 07:16:43 +0800 (六, 13 10 2012) | 2 lines
+r92 | tunes@google.com | 2012-10-13 07:16:43 +0800 (六, 13 10 2012)
 
 Google Common Lisp Style Guide updated to 1.11.
 
 ------------------------------------------------------------------------
-r91 | tunes@google.com | 2012-10-12 01:06:57 +0800 (五, 12 10 2012) | 3 lines
+r91 | tunes@google.com | 2012-10-12 01:06:57 +0800 (五, 12 10 2012)
 
 Google Common Lisp Style Guide updated to 1.10,
 integrating more feedback from inside and outside Google.
 
 ------------------------------------------------------------------------
-r90 | tunes@google.com | 2012-10-11 03:10:55 +0800 (四, 11 10 2012) | 2 lines
+r90 | tunes@google.com | 2012-10-11 03:10:55 +0800 (四, 11 10 2012)
 
 Manually add stylesheet information (for now) to lispguide.xml.
 
 ------------------------------------------------------------------------
-r89 | tunes@google.com | 2012-10-11 02:55:45 +0800 (四, 11 10 2012) | 2 lines
+r89 | tunes@google.com | 2012-10-11 02:55:45 +0800 (四, 11 10 2012)
 
 Set appropriate properties on lispguide.xml
 
 ------------------------------------------------------------------------
-r88 | tunes@google.com | 2012-10-11 02:50:04 +0800 (四, 11 10 2012) | 2 lines
+r88 | tunes@google.com | 2012-10-11 02:50:04 +0800 (四, 11 10 2012)
 
 Publish the Google Common Lisp Style Guide, revision 1.08, for public review.

@@ -5,7 +5,7 @@
 
 <p align="right">
 
-Revision 1.20
+Revision 1.23
 </p>
 
 
@@ -74,7 +74,8 @@ Robert Brown
     <a HREF="http://www.gigamonkeys.com/book/">Practical Common Lisp</a>.
     For a language reference, please consult the
     <a HREF="http://www.lispworks.com/documentation/HyperSpec/Front/index.htm">Common Lisp HyperSpec</a>.
-    For more detailed style guidance, take a look at Peter Norvig and Kent Pitman's
+    For more detailed style guidance, take (with a pinch of salt)
+    a look at Peter Norvig and Kent Pitman's
     <a HREF="http://norvig.com/luv-slides.ps">style guide</a>.
   </p>
 </CATEGORY>
@@ -180,7 +181,7 @@ Robert Brown
       <p>
         Some of these guidelines are motivated by universal principles of good programming.
         Some guidelines are motivated by technical peculiarities of Common Lisp.
-        Some guidelines where once motivated by a technical reason,
+        Some guidelines were once motivated by a technical reason,
         but the guideline remained after the reason subsided.
         Some guidelines, such those about as comments and indentation,
         are based purely on convention, rather than on clear technical merit.
@@ -211,15 +212,22 @@ Robert Brown
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="Old Code">
-    <p>
-      A lot of our code was written before these guidelines existed.
-      You should fix violations as you encounter them
-      in the course of your normal coding.
-      You must not fix violations en masse
-      without warning other developers and coordinating with them,
-      so as not to make the merging of large branches
-      more difficult than it already is.
-    </p>
+    <SUMMARY>
+      Fix old code as you go.
+    </SUMMARY>
+    <BODY>
+      <p>
+        A lot of our code was written before these guidelines existed.
+        You should fix violations as you encounter them
+        in the course of your normal coding.
+      </p>
+      <p>
+        You must not fix violations en masse
+        without warning other developers and coordinating with them,
+        so as not to make the merging of large branches
+        more difficult than it already is.
+      </p>
+    </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="Future Topics">
     <SUMMARY>
@@ -514,11 +522,11 @@ Robert Brown
           without any compilation error or warning messages whatsoever.
           If the compiler issues warnings that should be ignored,
           muffle those warnings using the
-          <code>xcvb-driver:with-controlled-compiler-conditions</code> and
-          <code>xcvb-driver:*uninteresting-conditions*</code>
-          framework (also available as <code>asdf-condition-control</code>),
+          <code>UIOP:WITH-MUFFLED-COMPILER-CONDITIONS</code> and
+          <code>UIOP:*UNINTERESTING-COMPILER-CONDITIONS*</code>
+          framework (part of <code>UIOP</code>, part of <code>ASDF 3</code>),
           either around the entire project, or around individual files
-          (using asdf's <code>:around-compile</code> hooks).
+          (using <code>ASDF</code>'s <code>:around-compile</code> hooks).
         </li>
         <li>
           All code should be checked in an appropriate source control system,
@@ -549,7 +557,7 @@ Robert Brown
   </STYLEPOINT>
 </CATEGORY>
 <CATEGORY title="Formatting">
-  <STYLEPOINT title="Spelling">
+  <STYLEPOINT title="Spelling and Abbreviations">
     <SUMMARY>
       <p>
         You must use correct spelling in your comments,
@@ -717,7 +725,7 @@ Robert Brown
         After that <code>in-package</code> form,
         every file should follow with any file-specific
         <code>(declaim (optimize ...))</code> declaration
-        that is not covered by an asdf <code>:around-compile</code> hook.
+        that is not covered by an <code>ASDF</code> <code>:around-compile</code> hook.
       </p>
       <CODE_SNIPPET>
         ;;;; Author: brown (Robert Brown)
@@ -1169,7 +1177,7 @@ Robert Brown
   <STYLEPOINT title="Symbol guidelines">
     <SUMMARY>
       You should use lower case.
-      You should follow the rules for <a href="#Spelling">Spelling and Abbreviations</a>
+      You should follow the rules for <a href="#Spelling_and_Abbreviations">Spelling and Abbreviations</a>
       You should follow punctuation conventions.
     </SUMMARY>
     <BODY>
@@ -1202,9 +1210,9 @@ Robert Brown
         unless you have a well-documented overarching reason to,
         and permission from other hackers who review your proposal.
       </p>
-        See the section on <a href="#Spelling">Spelling and Abbreviations</a>
-        for guidelines on using abbreviations.
       <p>
+        See the section on <a href="#Spelling_and_Abbreviations">Spelling and Abbreviations</a>
+        for guidelines on using abbreviations.
       </p>
       <BAD_CODE_SNIPPET>
         ;; Bad
@@ -2415,7 +2423,7 @@ Robert Brown
       </p>
       <ul>
         <li>
-          Implementing an interactive development loop.
+          The implementation of an interactive development tool.
         </li>
         <li>
           The build infrastructure.
@@ -2700,7 +2708,7 @@ Robert Brown
         instead of <code>FIRST</code> and <code>REST</code> also makes sense.
         However, keep in mind that it might be more appropriate in such cases
         to use higher-level constructs such as
-        <code>DESTRUCTURING-BIND</code> or <code>FARE-MATCHER:MATCH</code>.
+        <code>DESTRUCTURING-BIND</code> or <code>OPTIMA:MATCH</code>.
       </p>
     </BODY>
   </STYLEPOINT>
@@ -3282,7 +3290,7 @@ Robert Brown
         More generally, unsafe operations
         will yield the correct result faster
         than would the equivalent safe operation
-        if the arguments to satisfy some invariant such as
+        if the arguments satisfy some invariant such as
         being of the correct type and small enough;
         however if the arguments fail to satisfy the required invariants,
         then the operation may have undefined behavior,
@@ -3293,8 +3301,8 @@ Robert Brown
         or whether it is accounting for large amounts money,
         such undefined behavior can kill or bankrupt people.
         Yet proper speed can sometimes make the difference between
-        software that's unusably slow and software that does its job;
-        between software that is a net loss
+        software that's unusably slow and software that does its job,
+        or between software that is a net loss
         and software that can yield a profit.
       </p>
       <p>
@@ -3330,6 +3338,7 @@ Robert Brown
         but is not to be used for production code since
         it defeats the purpose of declarations as a performance trick.
       </p>
+
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="DYNAMIC-EXTENT">
@@ -3340,12 +3349,12 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        <code>DYNAMIC-EXTENT</code> declaration are
+        <code>DYNAMIC-EXTENT</code> declarations are
         a particular case of
         <a href="#Unsafe_Operations">unsafe operations</a>.
       </p>
       <p>
-        The purpose of the <code>DYNAMIC-EXTENT</code> declaration
+        The purpose of a <code>DYNAMIC-EXTENT</code> declaration
         is to improve performance by reducing garbage collection
         in cases where it appears to be obvious that an object's lifetime
         is within the "dynamic extent" of a function.
@@ -3372,7 +3381,7 @@ Robert Brown
           The lists created to store <code>&amp;REST</code> parameters.
         </li>
         <li>
-          Lists and vector allocated within a function.
+          Lists, vectors and structures allocated within a function.
         </li>
         <li>
           Closures.
@@ -3382,8 +3391,8 @@ Robert Brown
         If the assertion is wrong, i.e. if the programmer's claim is not true,
         the results can be <em>catastrophic</em>:
         Lisp can terminate any time after the function returns,
-        or it hang forever, or — worst of all —
-        produce incorrect results without any runtime error!
+        or it can hang forever, or — worst of all —
+        it can produce incorrect results without any runtime error!
       </p>
       <p>
         Even if the assertion is correct,
@@ -3425,18 +3434,19 @@ Robert Brown
         by analyzing where the function is called and
         what other functions it is passed to;
         therefore, you should somewhat wary of declaring a function
-        <code>DYNAMIC-EXTENT</code>, but not a high-stress declaration.
+        <code>DYNAMIC-EXTENT</code>, but this is not a high-stress declaration.
         On the other hand, it is much harder to ascertain that
         none of the objects ever bound or assigned to that variable
+        and none of their sub-objects
         will escape the dynamic extent of the current call frame,
-        nor will in any future modification of a function.
+        and that they still won't in any future modification of a function.
         Therefore, you should be extremely wary
         of declaring a variable <code>DYNAMIC-EXTENT</code>.
       </p>
       <p>
-        It's sometimes hard to know what the rate will be.
+        It's usually hard to predict the effect of such optimization on performance.
         When writing a function or macro
-        that's part of a library of reusable code,
+        that is part of a library of reusable code,
         there's no a priori way to know how often the code will run.
         Ideally, tools would be available to discover
         the availability and suitability of using such an optimization
@@ -3444,7 +3454,8 @@ Robert Brown
         in practice this isn't as easy as it ought to be.
         It's a tradeoff.
         If you're very, very sure that the assertion is true
-        (that the object is only used within the dynamic scope),
+        (that any object bound to the variable and any of its sub-objects
+        are only used within the dynamic extent of the specified scope),
         and it's not obvious how much time will be saved
         and it's not easy to measure,
         then it may be better to put in the declaration than to leave it out.
@@ -3466,11 +3477,16 @@ Robert Brown
         otherwise guarantees the same semantics.
         Of course, you must use <code>APPLY</code>
         if it does what you want and <code>REDUCE</code> doesn't.
+        For instance:
       </p>
-      <p>
-        For instance, <code>(apply #'+ (mapcar #'acc frobs)</code>
-        should instead be <code>(reduce #'+ frobs :key #'acc)</code>
-      </p>
+      <BAD_CODE_SNIPPET>
+        ;; Bad
+        (apply #'+ (mapcar #'acc frobs))
+      </BAD_CODE_SNIPPET>
+      <CODE_SNIPPET>
+        ;; Better
+        (reduce #'+ frobs :key #'acc :initial-value 0)
+      </CODE_SNIPPET>
       <p>
         This is preferable because it does not do extra consing,
         and does not risk going beyond <code>CALL-ARGUMENTS-LIMIT</code>
@@ -3486,9 +3502,14 @@ Robert Brown
         when an appropriate implementation is only <i>O(n)</i>.
         Moreover, <code>(REDUCE 'APPEND ...)</code>
         is also <i>O(n^2)</i> unless you specify <code>:FROM-END T</code>.
-        In such cases, you must use proper abstractions
-        that cover those cases instead of calling <code>REDUCE</code>,
-        first defining them in a suitable library if need be.
+        In such cases, you MUST NOT use <code>REDUCE</code>,
+        and you MUST NOT use <code>(APPLY 'STRCAT ...)</code>
+        or <code>(APPLY 'APPEND ...)</code> either.
+        Instead you MUST use proper abstractions
+        from a suitable library (that you may have to contribute to)
+        that properly handles those cases
+        without burdening users with implementation details.
+        See for instance <code>UIOP:REDUCE/STRCAT</code>.
       </p>
 
     </BODY>
@@ -3497,7 +3518,7 @@ Robert Brown
     <SUMMARY>
       You should not use <code>NCONC</code>;
       you should use <code>APPEND</code> instead,
-      or better data structures.
+      or better, better data structures.
     </SUMMARY>
     <BODY>
       <p>
@@ -3537,7 +3558,7 @@ Robert Brown
         (see Okasaki's book, and add them to lisp-interface-library),
         or more simply you should be accumulating data in a tree
         that will get flattened once in linear time
-        after the accumulation phase is complete (see how ASDF does it).
+        after the accumulation phase is complete.
       </p>
       <p>
         You may only use <code>NCONC</code>, <code>MAPCAN</code>
@@ -3620,11 +3641,17 @@ Robert Brown
   </STYLEPOINT>
   <STYLEPOINT title="Pathnames">
     <SUMMARY>
-      Common Lisp pathnames are tricky. Be aware of pitfalls.
+      Common Lisp pathnames are tricky. Be aware of pitfalls. Use <code>UIOP</code>.
     </SUMMARY>
     <BODY>
       <p>
         It is surprisingly hard to properly deal with pathnames in Common Lisp.
+      </p>
+      <p>
+        <code>ASDF 3</code> comes with a portability library <code>UIOP</code>
+        that makes it <em>much</em> easier to deal with pathnames
+        portably — and correctly — in Common Lisp.
+        You should use it when appropriate.
       </p>
       <p>
         First, be aware of the discrepancies between
@@ -3647,7 +3674,7 @@ Robert Brown
         which matters a lot on non-Unix platforms
         (and even on some Unix implementations).
         You probably should be using
-        <code>ASDF-UTILS:MERGE-PATHNAMES*</code>
+        <code>UIOP:MERGE-PATHNAMES*</code>
         instead of <code>MERGE-PATHNAMES</code>,
         especially if your expectations for relative pathnames
         are informed by the way they work in Unix or Windows;
@@ -3662,7 +3689,7 @@ Robert Brown
         Third, be aware that <code>DIRECTORY</code>
         is not portable across implementations
         in how it handles wildcards, sub-directories, symlinks, etc.
-        There again, <code>ASDF-UTILS</code> provides several
+        There again, <code>UIOP</code> provides several
         common abstractions to deal with pathnames.
       </p>
       <p>
@@ -3671,13 +3698,14 @@ Robert Brown
         Many implementations have bugs in them, when they are supported at all.
         SBCL implements them very well,
         but strictly enforces the limitations on characters
-        allowed by the standard.
+        allowed by the standard, which restricts their applicability.
         Other implementations allow arbitrary characters in such pathnames,
         but in doing so are not being conformant,
         and are still incompatible with each other in many ways.
         You should use other pathname abstractions,
         such as <code>ASDF:SYSTEM-RELATIVE-PATHNAME</code> or
-        the underlying <code>ASDF-UTILS:COERCE-PATHNAME</code>.
+        the underlying <code>UIOP:SUBPATHNAME</code> and
+        <code>UIOP:PARSE-UNIX-NAMESTRING</code>.
       </p>
 
       <p>
@@ -3689,6 +3717,9 @@ Robert Brown
         reinitialize any search path from current environment variables.
         <code>ASDF</code> for instance requires you to reset its paths
         with <code>ASDF:CLEAR-CONFIGURATION</code>.
+        <code>UIOP</code> provides hooks
+        to call functions before an image is dumped,
+        from which to reset or <code>makunbound</code> relevant variables.
       </p>
 
     </BODY>
@@ -3733,7 +3764,8 @@ Robert Brown
       <p>
         That is why any function specified in a <code>SATISFIES</code> clause
         MUST accept objects of any type as argument to the function,
-        and MUST be defined within an <code>EVAL-WHEN</code>.
+        and MUST be defined within an <code>EVAL-WHEN</code>
+        (as well as any variable it uses or function it calls):
       </p>
       <BAD_CODE_SNIPPET>
         (defun prime-number-p (n) ; Doubly bad!
@@ -3808,7 +3840,7 @@ Robert Brown
 </small>
 
 <p align="right">
-Revision 1.20
+Revision 1.23
 </p>
 
 
