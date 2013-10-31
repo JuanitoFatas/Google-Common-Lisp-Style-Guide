@@ -5,14 +5,14 @@
   <p>
     <a HREF="http://juanitofatas.github.io/Google-Common-Lisp-Style-Guide/GoogleCLSG.xml"
       TARGET="_blank">
-    Google Common Lisp Style Guide Rev. 1.20</a> in Chinese.
+    Google Common Lisp Style Guide Rev. 1.23</a> in Chinese.
     License:
     <a HREF="http://creativecommons.org/licenses/by/3.0/" TARGET="_blank">CC-By 3.0</a>.
   </p>
 </div>
 
 <p align="right">
-  修订版号 1.20
+  修订版号 1.23
 </p>
 
 <address>
@@ -55,7 +55,7 @@ Robert Brown
   </p>
   <p>
     本指南不是一个 Common Lisp 教程。关于语言的基本信息，请查阅 <a HREF="http://www.gigamonkeys.com/book/">Practical Common Lisp</a> 。关于语言参考手册，请查阅 <a HREF="http://www.lispworks.com/documentation/HyperSpec/Front/index.htm">Common Lisp HyperSpec</a> 。
-    至于更详细的风格指南，请看 Peter Norvig 及 Kent Pitman 的 <a HREF="http://norvig.com/luv-slides.ps">风格指南</a> 。
+    至于更详细的风格指南，姑且看看 Peter Norvig 与 Kent Pitman 写的 <a HREF="http://norvig.com/luv-slides.ps">风格指南</a> 。
   </p>
 </CATEGORY>
 </OVERVIEW>
@@ -144,9 +144,17 @@ Robert Brown
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="古老代码">
-    <p>
-      我们很多代码都是在这些准则存在前所写的。当你在平常编程时遇到违反准则的代码时，修补它们。但不应在没有警告其他开发者或协调的情况下修补，也不应该使合并较大的分支变得比以前困难。
-    </p>
+    <SUMMARY>
+      编程时顺手修补老代码。
+    </SUMMARY>
+    <BODY>
+      <p>
+        我们许多的代码都是在准则存在前所写的。平常编程遇到违反准则的代码时，修复它们。
+      </p>
+      <p>
+        不要在没有警告其他开发者或协调的情况下进行大量修补，也不要使合并较大的分支变得比以前困难。
+      </p>
+    </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="未来议题">
     <SUMMARY>
@@ -357,7 +365,7 @@ Robert Brown
         </li>
         <li>
           代码编译后必须没有任何编译错误或是警告信息，等等。如果需要忽略编译器所抱怨的警告时，
-          将这些警告用 <code>xcvb-driver:with-controlled-compiler-conditions</code> 及 <code>xcvb-driver:*uninteresting-conditions*</code> 框架包覆起来（也可以用 <code>asdf-condition-control</code>）。要包覆整个项目，或是单一的文件（使用 asdf 的 <code>:around-compile</code> hook）。
+          将这些警告用 <code>UIOP:WITH-MUFFLED-COMPILER-CONDITIONS</code> 与 <code>UIOP:*UNINTERESTING-COMPILER-CONDITIONS*</code> 框架处理（部分是 <code>UIOP</code>，部分是 <code>ASDF 3</code>），将整个项目包起来，或是包覆单一的文件（使用 <code>ASDF</code> 的 <code>:around-compile</code> hook）。
         </li>
         <li>
           所有的代码应该在一个适当的源代码管理系统检查，该系统可以在某种形式上，允许完整重新生成，某个已经布署（或可以布署）代码的版本、测试以及执行。
@@ -376,7 +384,7 @@ Robert Brown
   </STYLEPOINT>
 </CATEGORY>
 <CATEGORY title="格式化">
-  <STYLEPOINT title="拼写">
+  <STYLEPOINT title="拼写与缩写">
     <SUMMARY>
       <p>
         必须在注解里使用正确的拼写，而最重要要拼对的是函数的形参。
@@ -519,7 +527,7 @@ Robert Brown
         在 <code>in-package</code> 形式之后，
         接着是任何与文件相关的声明，比如
         <code>(declaim (optimize ...))</code>。
-        这些是 asdf <code>:around-compile</code> hook 并没有涵盖到的声明。
+        这些是 <code>ASDF</code> <code>:around-compile</code> hook 并没有涵盖到的声明。
       </p>
       <CODE_SNIPPET>
         ;;;; Author: brown (Robert Brown)
@@ -809,12 +817,6 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        For comments requiring special attention, such as
-        incomplete code, todo items, questions, breakage, and danger,
-        include a TODO comment indicating the type of problem,
-        its nature, and any notes on how it may be addressed.
-      </p>
-      <p>
         对于需要特别留意的注解，像是未完成的代码、待办事项、问题、损坏及危险，
         加上一个 TODO 注解指出问题的类型及本质，以及其他需要注意的事项。
       </p>
@@ -865,7 +867,7 @@ Robert Brown
   <STYLEPOINT title="符号准则">
     <SUMMARY>
       使用小写。
-      遵循<a href="#Spelling">拼写与缩写一节</a>的惯例。
+      遵循<a href="#拼写与缩写">拼写与缩写一节</a>的惯例。
       遵循标点符号的惯例。
     </SUMMARY>
     <BODY>
@@ -882,7 +884,7 @@ Robert Brown
         连字符必须用 <code>"-"</code>，不要用 <code>"/"</code> 或是 <code>"."</code>。除非你有一个无懈可击的理由，以及你的提议取得了来自其他黑客的许可。
       </p>
       <p>
-        参考<a href="#Spelling">拼写与缩写</a>一节，以了解使用缩写的准则。
+        参考<a href="#拼写与缩写">拼写与缩写</a>一节，以了解使用缩写的准则。
       </p>
       <BAD_CODE_SNIPPET>
         ;; 差劲
@@ -1876,7 +1878,7 @@ Robert Brown
       </p>
       <ul>
         <li>
-          实现一个交互的开发循环。
+          用以实现交互的开发工具。
         </li>
         <li><!-- The build infrastructure -->
           建构基础设施
@@ -2110,7 +2112,7 @@ Robert Brown
         在这个语境里，使用 <code>CAR</code> 及 <code>CDR</code>，而不是
         <code>FIRST</code> 及 <code>REST</code> 也合情合理。
         然而要记住的是，在这样的情况里，
-        用 <code>DESTRUCTURING-BIND</code> 或 <code>FARE-MATCHER:MATCH</code>
+        用 <code>DESTRUCTURING-BIND</code> 或 <code>OPTIMA:MATCH</code>
         可能更合适。
       </p>
     </BODY>
@@ -2647,7 +2649,7 @@ Robert Brown
         <a href="#危险操作">危险操作</a> 的特例。
       </p>
       <p>
-        <code>DYNAMIC-EXTENT</code> 声明的目的，是通过当对象的生命周期在函数的动态范围时，减少垃圾回收的次数来改善性能。
+        一个 <code>DYNAMIC-EXTENT</code> 声明的目的，是通过当对象的生命周期在函数的动态范围时，减少垃圾回收的次数来改善性能。
         这代表对象是在函数调用后的某个时候创建的，并函数存在后用任何方法都访问不到对象。
       </p>
       <p>
@@ -2657,14 +2659,14 @@ Robert Brown
       </p>
       <p>
         Lisp 实现则自由使用这些信息，使得程序运行的更快速。
-        通常 Lisp 实现可以利用这个知识来配置栈：
+        通常 Lisp 实现可以利用知识来配置栈：
       </p>
       <ul>
         <li>
           创建列表来保存 <code>&amp;REST</code> 参数。
         </li>
         <li>
-          在函数内配置的列表与向量。
+          在函数内配置结构、向量与列表。
         </li>
         <li>
           闭包。
@@ -2714,7 +2716,7 @@ Robert Brown
         因此，你应该步步惊心的声明一个变量是 <code>DYNAMIC-EXTENT</code> 的。
       </p>
       <p>
-        有时候很难知道该用什么样的使用率。
+        通常很难知道优化给性能带来多少提升。
         当撰写一个是可重用函式库的函数或宏时，
         无法未卜先知的知道代码运行的频率。
         理想上，会有可用的工具，基于运行模拟的结果，来找出优化的可用性与适用性。
@@ -2737,27 +2739,29 @@ Robert Brown
         以及一个由构元构造的列表。
         <!--- where the semantics of the first operator argument -->
         当然你必须使用 <code>APPLY</code> 如果它办到了你想要的事，
-        而 <code>REDUCE</code> 办不到的时候。
+        而 <code>REDUCE</code> 办不到的时候。举例来说，
       </p>
-      <p>
-        举例来说，<code>(apply #'+ (mapcar #'acc frobs)</code>
-        应该用 <code>(reduce #'+ frobs :key #'acc)</code> 来取代。
-      </p>
+      <BAD_CODE_SNIPPET>
+        ;; 差劲
+        (apply #'+ (mapcar #'acc frobs))
+      </BAD_CODE_SNIPPET>
+      <CODE_SNIPPET>
+        ;; 较佳
+        (reduce #'+ frobs :key #'acc :initial-value 0)
+      </CODE_SNIPPET>
       <p>
         这是比较推荐的，因为它没有额外的构造，并没有超出参数限制的危险（用 <code>CALL-ARGUMENTS-LIMIT</code> 来查看），在某些实现里限制是很小的，长的列表可能把栈弄垮
         （我们想避免代码含有没来由的不可移植性）。
       </p>
       <p>
-        然而当 <code>REDUCE</code> 不必要的增加计算的复杂度时，必须小心不要使用
+        然而当 <code>REDUCE</code> 增加了无谓的计算复杂度时，必须小心不要使用
         <code>REDUCE</code>。
         举例来说，<code>(REDUCE 'STRCAT ...)</code> 的复杂度为 <i>O(n^2)</i>，
         在一个适当的实现里仅需要 <i>O(n)</i>。
         此外，<code>(REDUCE 'APPEND ...)</code> 的复杂度也是 <i>O(n^2)</i>，
         除非你指定从尾端开始（<code>:FROM-END T</code>）。
-        在这个情形里，必须使用正确的抽象，来涵盖这些情形，而不是调用
-        <code>REDUCE</code>。
-        <!--- first defining them in a suitable library if need be. -->
-        <!-- 如果需要的话，先用合适的函式库来定义他们。 -->
+
+        在这些情况里，绝对不要使用 <code>REDUCE</code>，也不要用 <code>(APPLY 'APPEND ...)</code>。反之必须从合适的函式库挑个正确的抽象来用（可能是你有贡献的函式库），适当地处理这些情况，而不是让用户烦恼实现细节。例子可参见 <code>UIOP:REDUCE/STRCAT</code>
       </p>
     </BODY>
   </STYLEPOINT>
@@ -2792,7 +2796,7 @@ Robert Brown
         这是一个程序的限制因素，
         你的问题大了且你可能正使用错误的数据结构：
         你应该使用有着常量时间的 append (参见 <a HREF="http://www.amazon.com/Purely-Functional-Structures-Chris-Okasaki/dp/0521663504">Okasaki 的书</a>，并将它们加入 lisp-interface-library)，或更简单点，你应该用一个树来累积数据，
-        在累积期完成后，树变扁平，且只会变一次，时间是线性时间（看看 ASDF 是如何办到的）。
+        在累积期完成后，树变扁平，且只会变一次，时间是线性时间。
       </p>
       <p>
         你只可能在性能重要的底层函数里，使用 <code>NCONC</code>、<code>MAPCAN</code>
@@ -2855,11 +2859,16 @@ Robert Brown
   </STYLEPOINT>
   <STYLEPOINT title="路径名">
     <SUMMARY>
-      Common Lisp 路径名非常棘手。小心陷阱。
+      Common Lisp 路径名非常棘手。小心陷阱。使用 <code>UIOP</code>。
     </SUMMARY>
     <BODY>
       <p>
         要正确处理 Common Lisp 的路径名是相当困难的。
+      </p>
+      <p>
+        <code>ASDF 3</code> 带有可移植的函式库 <code>UIOP</code>
+        使得在 Common Lisp 里处理可移植的路径名变得 <em>非常</em> 简单。
+        应该在适当的情况下使用这个库。
       </p>
       <p>
         首先，注意 Common Lisp 路径名之间的差异，
@@ -2875,7 +2884,7 @@ Robert Brown
         第二，当使用 <code>MERGE-PATHNAMES</code> 时，
         注意 <code>HOST</code> 组件的处理方式，这对于非 Unix 平台很重要
         （甚至是某些 Unix 实现也很重要）。
-        你应该使用 <code>ASDF-UTILS:MERGE-PATHNAMES*</code>
+        你应该使用 <code>UIOP:MERGE-PATHNAMES*</code>
         而不是 <code>MERGE-PATHNAMES</code>，
         特别是若你期望相对路径能像本来在 Unix 或 Windows 里那样工作的话；
         不然可能会在某些实现里碰到古怪的错误，将绝对路径与相对路径合并，
@@ -2885,7 +2894,7 @@ Robert Brown
       <p>
         第三，留意 <code>DIRECTORY</code> 在实现之间是不可移植的，
         因为它们处理通配符、子目录、符号链接等，的方式不同
-        再一次， <code>ASDF-UTILS</code> 提供了许多常见的抽象来处理路径名。
+        再一次， <code>UIOP</code> 提供了许多常见的抽象来处理路径名。
       </p>
       <p>
         <code>LOGICAL-PATHNAME</code>们不是一个可移植的抽象，
@@ -2896,7 +2905,7 @@ Robert Brown
         并与其他系统在许多方面不兼容。
         你应该使用其它的路径名抽象，像是
         <code>ASDF:SYSTEM-RELATIVE-PATHNAME</code> 或
-        基础的 <code>ASDF-UTILS:COERCE-PATHNAME</code>。
+        背后的 <code>UIOP:SUBPATHNAME</code> 与 <code>UIOP:PARSE-UNIX-NAMESTRING</code>。
       </p>
       <p>
         最后，注意可能随时间改变的路径，在你建构 Lisp 映像及运行映像时会改变的路径。
@@ -2904,6 +2913,7 @@ Robert Brown
         以及从当前环境变量来重新初始化任何查找路径。
         举例来说 <code>ASDF</code> 需要你使用
         <code>ASDF:CLEAR-CONFIGURATION</code> 来重置路径。
+        <code>UIOP</code> 提供了在 image 导出前的 hook，让你可以将有关变量重置或 <code>makunbound</code>。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -2938,7 +2948,7 @@ Robert Brown
       </p>
       <p>
         这也是为什么在一个 <code>SATISFIES</code> 子句中指定的函数，必须接受任何类型的参数，
-        且必须在一个 <code>EVAL-WHEN</code> 里被定义。
+        且必须在一个 <code>EVAL-WHEN</code> 里被定义（以及任何用到的变量或调用的函数）：
       </p>
       <BAD_CODE_SNIPPET>
         (defun prime-number-p (n) ; 非常差！
@@ -3004,7 +3014,7 @@ Robert Brown
 </small>
 
 <p align="right">
-修订版号 1.20
+修订版号 1.23
 </p>
 
 
