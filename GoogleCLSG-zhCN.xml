@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="styleguide-zhCN.xsl"?>
+<?xml-stylesheet type="text/xsl" href="styleguide-zh.xsl"?>
 <GUIDE title="Google Common Lisp 风格指南">
 <div align="center">
   <p>
-    <a HREF="http://juanitofatas.github.io/Google-Common-Lisp-Style-Guide/GoogleCLSG.xml"
+    <a HREF="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml"
       TARGET="_blank">
-    Google Common Lisp Style Guide Rev. 1.23</a> in Chinese.
+    Google Common Lisp Style Guide Rev. 1.28</a> in Simplified Chinese.
     License:
     <a HREF="http://creativecommons.org/licenses/by/3.0/" TARGET="_blank">CC-By 3.0</a>.
   </p>
 </div>
 
 <p align="right">
-  修订版号 1.23
+  修订版号 1.28
 </p>
 
 <address>
@@ -480,12 +480,21 @@ Robert Brown
         像配置好的 GNU Emacs 那样缩排你的代码。
       </p>
       <p>
+        项目里维护一个一致的缩排风格。
+      </p>
+      <p>
         审慎的缩排会使代码更容易理解。
       </p>
     </SUMMARY>
     <BODY>
       <p>
         一般 GNU Emacs 在缩排 Common Lisp 代码这件工作上表现的非常出色。也可以教会 GNU Emacs 如何缩排新定义的形式，比如给特定领域语言用的特殊规则。每个项目可能含有某些定制缩排的文件；使用它们吧。
+      </p>
+      <p>
+        在 Emacs 里缩排 Common Lisp 代码由 cl-ident 函式库提供。最新版的 cl-indent 打包在 <a HREF="http://www.common-lisp.net/project/slime/">SLIME</a> 里。安装 SLIME 之后，按照<a HREF="http://www.common-lisp.net/project/slime/doc/html/Loading-Contribs.html">这里的操作步骤</a>，通过把 slime-indentation 加到 slime-setup 会加载的 contrib 函式库里，将 Emacs 设定为自动载入 SLIME。
+     </p>
+     <p>
+        理想的情况下，使用 slime-indentation 提供的默认缩排设置。需要的话可以订制缩排参数，给项目建立一致的缩排风格。参数可以通过 define-common-lisp-style 里的 :variables 设置来订制。具体某些形式的缩排可以通过 define-common-lisp-style 里的 :indentation 设置来订制。这在创建宏、特殊操作符，这些与标准缩排（比如 defun、lables 或 let）不同的场景下格外有用。添加 <a HREF="http://www.gnu.org/software/emacs/manual/html_node/emacs/Hooks.html">hook</a> 到调用 common-lisp-set-style 的 'lisp-mode-hook 来正确设置适当的风格。
       </p>
 
       <p>
@@ -530,22 +539,16 @@ Robert Brown
         这些是 <code>ASDF</code> <code>:around-compile</code> hook 并没有涵盖到的声明。
       </p>
       <CODE_SNIPPET>
-        ;;;; Author: brown (Robert Brown)
-
         ;;;; Variable length encoding for integers and floating point numbers.
 
         (in-package #:varint)
         (declaim #.*optimize-default*)
       </CODE_SNIPPET>
       <p>
-        不应该在文件顶端放著作权信息，著作权信息可以通过版本控制与 <code>OWNERS</code> 来取得。
+        不应该在文件顶端放著作权信息，著作权信息可以使用版本控制管理。文件顶端的著作权信息只会带来疑惑。而且当下的主要作者，最终可能不会是有最多贡献的人，之后也可能不再维护这个文件了。
       </p>
       <p>
-        不应该在每个源代码文件附上版权信息。单独发布的文件例外。
-      </p>
-      <p>
-        每个项目或函式库有个单一的文件，详细说明文件的授权。
-        没有授权或版权代表这个项目是<a HREF="http://en.wikipedia.org/wiki/Proprietary_software">专有代码</a>。
+        不应该在单独的源代码文件里包含著作权信息。例外是当文件对外单独发布时。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -821,7 +824,9 @@ Robert Brown
         加上一个 TODO 注解指出问题的类型及本质，以及其他需要注意的事项。
       </p>
       <p>
-        TODO 注解的格式，由 TODO （全大写）开始，接着是括号，括号内是你的邮箱或是其他人，再来是一个冒号跟空格，以及额外需要完成或想要完成的工作说明。包含在此注解内的用户名，是理解这个缺陷的那个人。TODO 注解并不代表一定要修补问题。
+        TODO 注解的格式，由 <code>TODO</code>（全大写）开始，接着是姓名、E-mail 地址、或其他个人识别（与 <code>TODO</code> 相關的上下文）。
+        主要用途是有一致性的 <code>TODO</code>，可以在需要了解细节时搜索的到。<code>TODO</code>不代表该负责人会修复问题。所以创建 <code>TODO</code> 时，留的名字总是<code>TODO</code> 创建人的名字
+
       </p>
       <p>
         当给注解签名时，应该使用用户名（针对公司内部代码），或是完整 email 地址（针对公司外部可见代码），而不只是名字的首字母缩写。
@@ -830,10 +835,10 @@ Robert Brown
         ;;--- TODO(george@gmail.com): Refactor to provide a better API.
       </CODE_SNIPPET>
       <p>
-        在 TODO 注解里，具体指出时间或是软件版本：
+        TODO 注解里具体指出时间或软件版本，请使用 <a HREF="http://www.w3.org/TR/NOTE-datetime">YYYY-MM-DD</a> 日期格式，这种格式使得自动处理更轻松，比如 2038-01-20 是 32 位有号 <code>time_t</code> 的最后一天。
       </p>
       <CODE_SNIPPET>
-        ;;--- TODO(brown): Remove this code after release 1.7 or before November, 2012.
+        ;;--- TODO(brown): Remove this code after release 1.7 or before 2012-11-30.
       </CODE_SNIPPET>
       <p>
         对于使用了晦涩形式来完成工作的代码，必须加上注解叙述晦涩形式的用途，
@@ -2884,7 +2889,7 @@ Robert Brown
         第二，当使用 <code>MERGE-PATHNAMES</code> 时，
         注意 <code>HOST</code> 组件的处理方式，这对于非 Unix 平台很重要
         （甚至是某些 Unix 实现也很重要）。
-        你应该使用 <code>UIOP:MERGE-PATHNAMES*</code>
+        你应该使用 <code>UIOP:MERGE-PATHNAMES*</code> 或 <code>UIOP:SUBPATHNAME</code>，
         而不是 <code>MERGE-PATHNAMES</code>，
         特别是若你期望相对路径能像本来在 Unix 或 Windows 里那样工作的话；
         不然可能会在某些实现里碰到古怪的错误，将绝对路径与相对路径合并，
@@ -2894,7 +2899,7 @@ Robert Brown
       <p>
         第三，留意 <code>DIRECTORY</code> 在实现之间是不可移植的，
         因为它们处理通配符、子目录、符号链接等，的方式不同
-        再一次， <code>UIOP</code> 提供了许多常见的抽象来处理路径名。
+        再一次， <code>UIOP</code> 提供了许多常见的抽象来处理路径名。但仅此而已，完整可移植的解決方案，請使用 IOLib。
       </p>
       <p>
         <code>LOGICAL-PATHNAME</code>们不是一个可移植的抽象，
@@ -2912,7 +2917,7 @@ Robert Brown
         你应该谨慎的重置你的映像，来修正不相关的建构期路径，
         以及从当前环境变量来重新初始化任何查找路径。
         举例来说 <code>ASDF</code> 需要你使用
-        <code>ASDF:CLEAR-CONFIGURATION</code> 来重置路径。
+        <code>UIOP:CLEAR-CONFIGURATION</code> 来重置路径。
         <code>UIOP</code> 提供了在 image 导出前的 hook，让你可以将有关变量重置或 <code>makunbound</code>。
       </p>
     </BODY>
@@ -3014,7 +3019,7 @@ Robert Brown
 </small>
 
 <p align="right">
-修订版号 1.23
+修订版号 1.28
 </p>
 
 
