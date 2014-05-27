@@ -174,11 +174,11 @@ xmlns:fn="http://www.w3.org/2005/xpath-functions">
     </xsl:variable>
     <DIV style="margin-left: 50%; font-size: 75%;">
       <P>
-        每个风格要点都附有总结，包含了额外可用的信息，通过按下风格要点下方的箭头按钮
+        每個風格要點都附有總結，包含了額外可用的信息，通過按下風格要點下方的箭頭按鈕
         <SPAN class="showhide_button" style="margin-left: 2px; float: none">
           <xsl:value-of select="$show_button_text"/></SPAN>
-        来显示总结：
-        按下这大大的箭头按钮，来显示本指南内所有的总结：
+        來顯示總結：
+        按下這大大的箭頭按鈕，來顯示本指南內所有的總結：
       </P>
       <DIV style=" font-size: larger; margin-left: +2em;">
         <SPAN class="showhide_button" style="font-size: 180%; float: none">
@@ -187,7 +187,7 @@ xmlns:fn="http://www.w3.org/2005/xpath-functions">
           <xsl:attribute name="id"><xsl:value-of select="$show_hide_all_button"/></xsl:attribute>
           <xsl:value-of select="$button_text"/>
         </SPAN>
-        全部展开
+        全部展開
       </DIV>
     </DIV>
     <xsl:call-template name="TOC">
@@ -430,7 +430,7 @@ xmlns:fn="http://www.w3.org/2005/xpath-functions">
   <xsl:template name="TOC">
     <xsl:param name="root"/>
     <DIV class="toc">
-      <DIV class="toc_title">目录</DIV>
+      <DIV class="toc_title">目錄</DIV>
       <TABLE>
       <xsl:for-each select="$root/CATEGORY">
         <TR valign="top">
