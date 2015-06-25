@@ -175,7 +175,7 @@ Robert Brown
           如何添加可配置的组件
         </li>
         <li>
-          CLOS 风格：initforms, 槽以及访问器名称，等等。
+          CLOS 风格：initforms、槽以及访问器名称，等等。
         </li>
         <li>
           每个类可有的最大槽数的建议。
