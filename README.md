@@ -2,7 +2,7 @@
 
 ### Read Online!
 
-visit: http://gclsg.lisp.tw/
+[Visit here](http://juanitofatas.github.io/Google-Common-Lisp-Style-Guide/GoogleCLSG-zhTW.xml).
 
 ### Why this guide?
 
@@ -16,7 +16,7 @@ visit: http://gclsg.lisp.tw/
 
 These style guides are licensed under the CC-By 3.0 License, which encourages you to share these documents. See http://creativecommons.org/licenses/by/3.0/ for more details.
 
-<img alt="创用 CC 3.0 授权条款" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" />
+<img alt="創用 CC 3.0 授權條款" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" />
 
 [gsg]: https://code.google.com/p/google-styleguide/
 [GCLSG]: https://google.github.io/styleguide/lispguide.xml
