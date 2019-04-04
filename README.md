@@ -2,7 +2,7 @@
 
 ### Read Online!
 
-[Visit here](http://juanitofatas.github.io/Google-Common-Lisp-Style-Guide/GoogleCLSG-zhTW.xml).
+[Visit here](https://juanitofatas.github.io/Google-Common-Lisp-Style-Guide/GoogleCLSG-zhTW.xml).
 
 ### Why this guide?
 
